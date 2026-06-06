@@ -69,6 +69,7 @@ function normalise(matches) {
       hScore: ft.home ?? null,
       aScore: ft.away ?? null,
       channel: channelFor(home, away),
+      venue: m.venue || null,
     };
 
     if (m.status === "IN_PLAY" || m.status === "PAUSED") {
@@ -116,7 +117,7 @@ export default async () => {
 
   // Serve from cache if fresh.
   try {
-    const cached = await s.get("payload", { type: "json" });
+    const cached = await s.get("feed", { type: "json" });
     if (cached && Date.now() - cached.ts < CACHE_MS) {
       return json(cached.body);
     }
@@ -128,7 +129,7 @@ export default async () => {
     const res = await fetch(API, { headers: { "X-Auth-Token": TOKEN } });
     if (!res.ok) {
       // On an upstream error, serve stale cache if we have any.
-      const stale = await s.get("payload", { type: "json" }).catch(() => null);
+      const stale = await s.get("feed", { type: "json" }).catch(() => null);
       if (stale) return json(stale.body);
       return json(
         { configured: true, error: "upstream", status: res.status, live: [], upcoming: [], recent: [] },
@@ -146,11 +147,11 @@ export default async () => {
       england: n.england,
     };
     // Cache the response and the compact results map (for bet settlement).
-    await s.setJSON("payload", { ts: Date.now(), body });
+    await s.setJSON("feed", { ts: Date.now(), body });
     await s.setJSON("results", { ts: Date.now(), results: n.results });
     return json(body);
   } catch (err) {
-    const stale = await s.get("payload", { type: "json" }).catch(() => null);
+    const stale = await s.get("feed", { type: "json" }).catch(() => null);
     if (stale) return json(stale.body);
     return json(
       { configured: true, error: "fetch_failed", detail: String(err), live: [], upcoming: [], recent: [] },
