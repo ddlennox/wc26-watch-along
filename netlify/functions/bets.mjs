@@ -100,6 +100,25 @@ export default async (req) => {
     if (req.method === "POST") {
       const body = await req.json();
       const action = body.action;
+
+      if (action === "prune") {
+        // Remove no-bet players whose name is a prefix of a longer player's name
+        // (clears partial-name leaderboard junk like D / Da / Dav before "David").
+        const { players, allBets } = await listAll(s);
+        const bettors = new Set(allBets.map((b) => (b.who || "").toLowerCase()));
+        const names = players.map((p) => (p.name || "").toLowerCase());
+        let removed = 0;
+        for (const p of players) {
+          const lc = (p.name || "").toLowerCase();
+          if (bettors.has(lc)) continue;
+          if (names.some((n) => n !== lc && n.startsWith(lc))) {
+            await s.delete("player:" + lc);
+            removed++;
+          }
+        }
+        return json({ ok: true, removed });
+      }
+
       const name = cleanName(body.name);
       if (!name) return json({ error: "name required" }, 400);
 

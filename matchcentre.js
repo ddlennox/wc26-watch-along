@@ -94,7 +94,7 @@
   }
 
   // ---- state ----
-  var SC = { configured: false, live: [], upcoming: [], recent: [] };
+  var SC = { configured: false, live: [], upcoming: [], recent: [], england: [] };
   var BT = { players: [], bets: [], start: 1000 };
   var TAB = "scores";
   var ensured = "";
@@ -153,7 +153,12 @@
 
     // react to name changes from the main page box
     var nameBox = document.getElementById("meName");
-    if (nameBox) nameBox.addEventListener("input", function () { ensurePlayer(); renderBalance(); });
+    if (nameBox) {
+      nameBox.addEventListener("input", function () { renderBalance(); });
+      // only register the player once they've finished typing (blur), so partial
+      // names like D / Da / Dav don't each land on the leaderboard
+      nameBox.addEventListener("change", function () { ensurePlayer(); });
+    }
   }
 
   function setOpen(open) { document.body.classList.toggle("mc-open", !!open); }
@@ -301,6 +306,11 @@
       up.forEach(function (m) { f.appendChild(matchRow(m, {})); });
       dom.scroll.innerHTML = ""; dom.scroll.appendChild(f); return;
     }
+    var engIds = {};
+    if (SC.england && SC.england.length) {
+      f.appendChild(el('<div class="mc-section-t">🦁 England</div>'));
+      SC.england.forEach(function (m) { engIds[m.id] = 1; f.appendChild(matchRow(m, {})); });
+    }
     if (SC.live.length) {
       f.appendChild(el('<div class="mc-section-t">🔴 Live now</div>'));
       SC.live.forEach(function (m) { f.appendChild(matchRow(m, { live: true })); });
@@ -313,14 +323,17 @@
         (next.channel ? '<span class="ch">' + esc(next.channel) + "</span>" : "") + "</div>" +
         '<div class="cd" data-utc="' + esc(next.utc) + '">' + countdown(next.utc) + "</div></div>"
       ));
-      f.appendChild(el('<div class="mc-section-t">Upcoming</div>'));
-      SC.upcoming.forEach(function (m) { f.appendChild(matchRow(m, {})); });
+      var rest = SC.upcoming.filter(function (m) { return !engIds[m.id]; });
+      if (rest.length) {
+        f.appendChild(el('<div class="mc-section-t">Upcoming</div>'));
+        rest.forEach(function (m) { f.appendChild(matchRow(m, {})); });
+      }
     }
     if (SC.recent.length) {
       f.appendChild(el('<div class="mc-section-t">Results</div>'));
       SC.recent.forEach(function (m) { f.appendChild(matchRow(m, { done: true })); });
     }
-    if (!SC.live.length && !SC.upcoming.length && !SC.recent.length) {
+    if (!SC.live.length && !SC.upcoming.length && !SC.recent.length && !(SC.england && SC.england.length)) {
       f.appendChild(el('<div class="mc-empty">No matches to show yet — the tournament kicks off 11 June.</div>'));
     }
     dom.scroll.innerHTML = ""; dom.scroll.appendChild(f);
@@ -396,7 +409,7 @@
     try {
       var r = await fetch(SCORES_URL, { cache: "no-store" });
       var j = await r.json();
-      SC = { configured: !!j.configured, live: j.live || [], upcoming: j.upcoming || [], recent: j.recent || [] };
+      SC = { configured: !!j.configured, live: j.live || [], upcoming: j.upcoming || [], recent: j.recent || [], england: j.england || [] };
     } catch (e) { SC.configured = false; }
     render();
   }
@@ -423,7 +436,6 @@
     loadBets();
     setInterval(loadScores, SCORES_EVERY);
     setInterval(loadBets, BETS_EVERY);
-    setInterval(function () { ensurePlayer(); }, 8000);
     setInterval(tickCountdown, 1000);
   }
 

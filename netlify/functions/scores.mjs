@@ -95,10 +95,15 @@ function normalise(matches) {
   recent.sort((a, b) => new Date(b.utc) - new Date(a.utc));
   live.sort((a, b) => new Date(a.utc) - new Date(b.utc));
 
+  // England's upcoming games, pinned regardless of the general 14-game window
+  const isEngland = (m) => /england/i.test(m.home) || /england/i.test(m.away);
+  const england = upcoming.filter(isEngland).slice(0, 6);
+
   return {
     live,
     upcoming: upcoming.slice(0, 14),
     recent: recent.slice(0, 10),
+    england,
     results,
   };
 }
@@ -138,6 +143,7 @@ export default async () => {
       live: n.live,
       upcoming: n.upcoming,
       recent: n.recent,
+      england: n.england,
     };
     // Cache the response and the compact results map (for bet settlement).
     await s.setJSON("payload", { ts: Date.now(), body });
