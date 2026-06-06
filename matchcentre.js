@@ -277,6 +277,7 @@
         oddBtn(m, "DRAW", "Draw", o.draw) +
         oddBtn(m, "AWAY", m.away, o.away) +
         "</div>";
+      html += '<button class="mc-plan" type="button">📌 Plan to watch this</button>';
     }
     html += "</div>";
     var node = el(html);
@@ -287,6 +288,10 @@
           selection: b.dataset.sel, selLabel: b.dataset.lab, odds: Number(b.dataset.odds)
         });
       });
+    });
+    var pb = node.querySelector(".mc-plan");
+    if (pb) pb.addEventListener("click", function () {
+      if (window.planGame) { window.planGame(m.home + " v " + m.away, m.utc); setOpen(false); }
     });
     return node;
   }
