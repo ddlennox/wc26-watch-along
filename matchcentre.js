@@ -307,6 +307,16 @@
       dom.scroll.innerHTML = ""; dom.scroll.appendChild(f); return;
     }
     var engIds = {};
+    // Up next — always pinned at the very top of the panel
+    if (SC.upcoming.length) {
+      var next = SC.upcoming[0];
+      f.appendChild(el(
+        '<div class="mc-next"><div class="when">Up next</div>' +
+        '<div class="teams">' + esc(next.home) + " v " + esc(next.away) +
+        (next.channel ? '<span class="ch">' + esc(next.channel) + "</span>" : "") + "</div>" +
+        '<div class="cd" data-utc="' + esc(next.utc) + '">' + countdown(next.utc) + "</div></div>"
+      ));
+    }
     if (SC.england && SC.england.length) {
       f.appendChild(el('<div class="mc-section-t">🦁 England</div>'));
       SC.england.forEach(function (m) { engIds[m.id] = 1; f.appendChild(matchRow(m, {})); });
@@ -316,13 +326,6 @@
       SC.live.forEach(function (m) { f.appendChild(matchRow(m, { live: true })); });
     }
     if (SC.upcoming.length) {
-      var next = SC.upcoming[0];
-      f.appendChild(el(
-        '<div class="mc-next"><div class="when">Up next</div>' +
-        '<div class="teams">' + esc(next.home) + " v " + esc(next.away) +
-        (next.channel ? '<span class="ch">' + esc(next.channel) + "</span>" : "") + "</div>" +
-        '<div class="cd" data-utc="' + esc(next.utc) + '">' + countdown(next.utc) + "</div></div>"
-      ));
       var rest = SC.upcoming.filter(function (m) { return !engIds[m.id]; });
       if (rest.length) {
         f.appendChild(el('<div class="mc-section-t">Upcoming</div>'));
