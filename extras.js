@@ -3,6 +3,7 @@
    - Tap a game (in the panel) or a pub -> pre-fills the "Post my plan" form
    - Weather for the chosen town on the match date (free Open-Meteo, no key)
    - Registers the service worker so the site installs as an app
+   - Loads tables.js (group tables / knockout bracket)
    Hooks into the globals defined by index.html's inline script (PUBS, TOWNS,
    mapsLink, esc, renderPubs, renderFilters) — classic scripts share scope. */
 (function () {
@@ -187,6 +188,15 @@
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/sw.js").catch(function () {});
+    }
+
+    // load the group tables / knockout bracket module
+    if (!document.getElementById("pk-tables-js")) {
+      var tj = document.createElement("script");
+      tj.id = "pk-tables-js";
+      tj.src = "/tables.js";
+      tj.defer = true;
+      document.body.appendChild(tj);
     }
   }
 
