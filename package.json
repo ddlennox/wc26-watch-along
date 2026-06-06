@@ -1,0 +1,10 @@
+{
+  "name": "world-cup-watch-along",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Group World Cup 2026 watch-along board, pubs and odds.",
+  "dependencies": {
+    "@netlify/blobs": "^8.0.0"
+  }
+}

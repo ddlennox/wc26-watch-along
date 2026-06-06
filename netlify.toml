@@ -1,0 +1,10 @@
+# Netlify configuration for the World Cup watch-along site
+
+[build]
+  # Static files (index.html) live in the project root
+  publish = "."
+  # Serverless functions live here
+  functions = "netlify/functions"
+
+# Functions v2 set their own route via `export const config = { path }`,
+# so no manual redirects are needed for /api/plans.
