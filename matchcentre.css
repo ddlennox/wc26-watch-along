@@ -1,0 +1,144 @@
+/* ===== Match Centre side panel + fun-coin betting =====
+   Uses the colour variables defined in index.html's :root. */
+
+:root{ --mc-w:360px; }
+
+/* Floating toggle (always available) */
+#mc-toggle{
+  position:fixed; left:16px; bottom:16px; z-index:70;
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Anton',sans-serif; font-size:15px; letter-spacing:.03em; text-transform:uppercase;
+  background:var(--lime); color:#0a1009; border:none; border-radius:999px;
+  padding:11px 18px; cursor:pointer; box-shadow:0 6px 22px rgba(0,0,0,.45);
+}
+#mc-toggle .live-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,90,31,.25);animation:mcpulse 1.6s infinite}
+#mc-toggle.has-live{background:var(--orange);color:#fff}
+#mc-toggle.has-live .live-dot{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.3)}
+@keyframes mcpulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* Backdrop (mobile only) */
+#mc-backdrop{position:fixed;inset:0;background:rgba(2,8,6,.6);z-index:64;opacity:0;pointer-events:none;transition:opacity .25s}
+body.mc-open #mc-backdrop{opacity:1;pointer-events:auto}
+
+/* Panel */
+#mc-panel{
+  position:fixed; top:0; left:0; bottom:0; width:var(--mc-w); max-width:90vw;
+  background:var(--panel); border-right:1px solid var(--line-strong);
+  z-index:66; display:flex; flex-direction:column;
+  transform:translateX(-100%); transition:transform .28s ease;
+  box-shadow:0 0 40px rgba(0,0,0,.4);
+}
+body.mc-open #mc-panel{transform:translateX(0)}
+
+.mc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);flex-shrink:0}
+.mc-head h3{font-family:'Anton',sans-serif;font-size:18px;color:var(--ink);letter-spacing:.02em}
+.mc-head h3 small{display:block;font-family:'Hanken Grotesk',sans-serif;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:none;margin-top:2px}
+.mc-close{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:16px;line-height:1}
+.mc-close:hover{color:var(--ink);border-color:var(--line-strong)}
+
+/* Balance pill */
+.mc-bal{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);flex-shrink:0;background:var(--panel-2)}
+.mc-bal .lab{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.mc-bal .coins{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold)}
+.mc-bal .coins.lo{color:var(--orange)}
+
+/* Tabs */
+.mc-tabs{display:flex;gap:4px;padding:8px 10px;border-bottom:1px solid var(--line);flex-shrink:0}
+.mc-tabs button{flex:1;font:inherit;font-weight:700;font-size:13px;color:var(--muted);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 6px;cursor:pointer}
+.mc-tabs button.on{background:var(--lime);color:#0a1009}
+
+.mc-body{overflow-y:auto;flex:1;padding:12px 14px 24px;scrollbar-width:thin}
+.mc-body::-webkit-scrollbar{width:8px}
+.mc-body::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:8px}
+
+.mc-section-t{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.06em;color:var(--lime);text-transform:uppercase;margin:14px 2px 8px}
+.mc-section-t:first-child{margin-top:2px}
+.mc-empty{color:var(--muted);font-size:13px;padding:10px 4px}
+
+/* up-next countdown */
+.mc-next{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:6px}
+.mc-next .when{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.mc-next .teams{font-family:'Anton',sans-serif;font-size:18px;margin:4px 0}
+.mc-next .cd{font-family:'Anton',sans-serif;font-size:22px;color:var(--gold)}
+.mc-next .ch{font-size:11px;font-weight:800;color:var(--gold);border:1px solid var(--line-strong);border-radius:999px;padding:2px 8px;margin-left:6px}
+
+/* match row */
+.mc-match{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.mc-match .mrow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mc-match .side{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--ink);flex:1;min-width:0}
+.mc-match .side .tla{font-size:11px;color:var(--muted);font-weight:600}
+.mc-match .sc{font-family:'Anton',sans-serif;font-size:18px;color:var(--ink);min-width:24px;text-align:center}
+.mc-match .meta{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
+.mc-match .tag{font-size:10.5px;font-weight:700;color:var(--muted);background:var(--night);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.mc-match .tag.live{color:#fff;background:var(--orange);border-color:var(--orange)}
+.mc-match .tag.ch{color:var(--gold);border-color:var(--line-strong)}
+.mc-match .tag.win{color:var(--lime)}
+
+/* W/D/W bet buttons */
+.mc-odds{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:9px}
+.mc-odds button{font:inherit;cursor:pointer;background:var(--night);border:1px solid var(--line-strong);border-radius:8px;padding:6px 4px;text-align:center;transition:.12s}
+.mc-odds button:hover:not(:disabled){border-color:var(--lime);transform:translateY(-1px)}
+.mc-odds button:disabled{opacity:.45;cursor:not-allowed}
+.mc-odds button .pick{display:block;font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-odds button .dec{display:block;font-family:'Anton',sans-serif;font-size:15px;color:var(--gold);margin-top:1px}
+.mc-odds button.sel{border-color:var(--lime);background:rgba(214,255,63,.12)}
+
+/* leaderboard */
+.mc-lb{display:flex;flex-direction:column;gap:6px}
+.mc-lb .lb{display:flex;align-items:center;gap:10px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.mc-lb .lb .rk{font-family:'Anton',sans-serif;color:var(--muted);font-size:15px;width:18px;text-align:center}
+.mc-lb .lb .nm{flex:1;font-weight:700;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-lb .lb.me .nm{color:var(--lime)}
+.mc-lb .lb .bal{font-family:'Anton',sans-serif;font-size:16px;color:var(--gold)}
+.mc-lb .lb.lead{border-color:rgba(255,206,77,.5)}
+.mc-lb .lb .rk.first{color:var(--gold)}
+
+/* your bets */
+.mc-bet{display:flex;justify-content:space-between;gap:10px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:6px;border-left:3px solid var(--line-strong)}
+.mc-bet.won{border-left-color:var(--lime)}
+.mc-bet.lost{border-left-color:var(--orange)}
+.mc-bet.open{border-left-color:var(--gold)}
+.mc-bet .l .m{font-size:13px;font-weight:700;color:var(--ink)}
+.mc-bet .l .p{font-size:12px;color:var(--muted);margin-top:2px}
+.mc-bet .r{text-align:right;white-space:nowrap}
+.mc-bet .r .st{font-size:12px;color:var(--muted)}
+.mc-bet .r .out{font-family:'Anton',sans-serif;font-size:14px;margin-top:2px}
+.mc-bet.won .r .out{color:var(--lime)}
+.mc-bet.lost .r .out{color:var(--orange)}
+.mc-bet.open .r .out{color:var(--gold)}
+
+.mc-foot{font-size:11px;color:var(--muted);padding:6px 4px 0;border-top:1px solid var(--line);margin-top:14px}
+
+/* Bet modal */
+#mc-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(2,8,6,.72);padding:18px}
+#mc-modal.show{display:flex}
+.mc-card{background:var(--panel);border:1px solid var(--line-strong);border-radius:16px;padding:22px;width:360px;max-width:100%}
+.mc-card h4{font-family:'Anton',sans-serif;font-size:20px;color:var(--ink);margin-bottom:2px}
+.mc-card .sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+.mc-card .pickline{display:flex;align-items:center;justify-content:space-between;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:14px}
+.mc-card .pickline .p{font-weight:700;color:var(--lime)}
+.mc-card .pickline .o{font-family:'Anton',sans-serif;color:var(--gold);font-size:18px}
+.mc-card label{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.mc-card input[type=number]{width:100%;background:var(--night);border:1px solid var(--line-strong);color:var(--ink);font:inherit;font-size:16px;padding:11px 12px;border-radius:10px}
+.mc-card input:focus{outline:none;border-color:var(--lime)}
+.mc-chips{display:flex;gap:6px;margin:10px 0 4px;flex-wrap:wrap}
+.mc-chips button{font:inherit;font-size:12px;font-weight:700;color:var(--ink);background:var(--night);border:1px solid var(--line-strong);border-radius:999px;padding:5px 11px;cursor:pointer}
+.mc-chips button:hover{border-color:var(--lime)}
+.mc-payout{font-size:13px;color:var(--muted);margin:12px 0 4px}
+.mc-payout b{color:var(--gold);font-size:15px}
+.mc-card .acts{display:flex;gap:10px;margin-top:16px}
+.mc-card .acts button{flex:1;font:inherit;font-family:'Anton',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:.03em;border-radius:10px;padding:11px;cursor:pointer;border:1px solid var(--line-strong);background:transparent;color:var(--ink)}
+.mc-card .acts .go{background:var(--lime);color:#0a1009;border-color:var(--lime)}
+.mc-card .acts .go:disabled{opacity:.45;cursor:not-allowed}
+.mc-err{color:var(--orange);font-size:12.5px;margin-top:10px;min-height:1em}
+
+/* Desktop: panel open by default, push the page right */
+@media(min-width:921px){
+  body.mc-ready{padding-left:0;transition:padding-left .28s ease}
+  body.mc-ready.mc-open{padding-left:var(--mc-w)}
+  body.mc-open #mc-backdrop{opacity:0;pointer-events:none}
+  body.mc-open #mc-toggle{left:calc(var(--mc-w) + 16px)}
+}
+@media(max-width:920px){
+  #mc-toggle{font-size:13px;padding:10px 15px}
+}
