@@ -34,7 +34,7 @@ function normGroups(data) {
   const out = [];
   for (const s of data.standings || []) {
     if (s.type && s.type !== "TOTAL") continue;
-    const g = (s.group || "").replace("GROUP_", "").trim();
+    const g = (s.group || "").replace(/^group[ _]?/i, "").trim();
     out.push({
       group: g || (s.stage || "").replace(/_/g, " "),
       rows: (s.table || []).map((r) => ({
@@ -97,7 +97,7 @@ export default async () => {
 
   const s = store();
   try {
-    const c = await s.get("payload", { type: "json" });
+    const c = await s.get("snapshot", { type: "json" });
     if (c && Date.now() - c.ts < CACHE_MS) return json(c.body);
   } catch (e) {
     /* fall through */
@@ -114,10 +114,10 @@ export default async () => {
       groups,
       bracket: { rounds: bracket.rounds },
     };
-    await s.setJSON("payload", { ts: Date.now(), body });
+    await s.setJSON("snapshot", { ts: Date.now(), body });
     return json(body);
   } catch (err) {
-    const stale = await s.get("payload", { type: "json" }).catch(() => null);
+    const stale = await s.get("snapshot", { type: "json" }).catch(() => null);
     if (stale) return json(stale.body);
     return json({ configured: true, error: String(err), phase: "group", groups: [], bracket: { rounds: [] } });
   }
