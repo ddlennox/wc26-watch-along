@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="matchcentre.css">
 <style>
   :root{
     --night:#08130f;
@@ -364,9 +365,9 @@ const ENGLAND = [
 
 // Outright winner — latest available prices (early June, best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Spain",p:"5/1"},{team:"France",p:"6/1"},{team:"England",p:"7/1"},
-  {team:"Argentina",p:"8/1"},{team:"Brazil",p:"9/1"},{team:"Portugal",p:"11/1"},
-  {team:"Germany",p:"14/1"},{team:"Netherlands",p:"20/1"},{team:"Norway",p:"25/1"},
+  {team:"Spain",p:"19/4"},{team:"France",p:"5/1"},{team:"England",p:"13/2"},
+  {team:"Brazil",p:"17/2"},{team:"Argentina",p:"9/1"},{team:"Portugal",p:"10/1"},
+  {team:"Germany",p:"14/1"},{team:"Netherlands",p:"22/1"},{team:"Norway",p:"28/1"},
 ];
 
 const PUBS = [
@@ -685,5 +686,6 @@ loadMe();
 loadPlans();
 setInterval(loadPlans, 20000); // keep the board roughly in sync
 </script>
+<script src="matchcentre.js"></script>
 </body>
 </html>
