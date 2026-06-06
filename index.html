@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lads' World Cup '26 — Where We're Watching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#08130f;
+    --panel:#0e1d17;
+    --panel-2:#13251d;
+    --line:rgba(244,241,233,.14);
+    --line-strong:rgba(244,241,233,.28);
+    --ink:#f4f1e9;
+    --muted:#9bb0a4;
+    --lime:#d6ff3f;
+    --orange:#ff5a1f;
+    --gold:#ffce4d;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    background:var(--night);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  h1,h2,h3,.disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+
+  /* HERO */
+  header.hero{
+    position:relative;overflow:hidden;
+    padding:56px 0 40px;
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(214,255,63,.10), transparent 55%),
+      radial-gradient(90% 70% at 0% 120%, rgba(255,90,31,.10), transparent 50%),
+      var(--night);
+    border-bottom:1px solid var(--line);
+  }
+  .pitch-lines{position:absolute;inset:0;opacity:.5;pointer-events:none}
+  .pitch-lines .circle{position:absolute;top:-120px;right:-80px;width:340px;height:340px;border:2px solid var(--line);border-radius:50%}
+  .pitch-lines .circle.sm{top:-60px;right:-20px;width:220px;height:220px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+  .kicker .dot{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 4px rgba(214,255,63,.18);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  header.hero h1{font-size:clamp(44px,9vw,92px);max-width:14ch}
+  header.hero h1 em{font-style:normal;color:var(--lime)}
+  .sub{margin-top:14px;color:var(--muted);max-width:54ch;font-size:16px}
+  .sub b{color:var(--ink)}
+
+  /* COUNTDOWN */
+  .count{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+  .count .cell{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:78px;text-align:center}
+  .count .num{font-family:'Anton',sans-serif;font-size:34px;line-height:1;color:var(--gold)}
+  .count .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .count .what{align-self:center;color:var(--muted);font-size:14px;max-width:16ch}
+
+  /* IDENTITY BAR */
+  .me-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+  .me-bar label{font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .me-bar input{flex:1;min-width:140px;background:var(--night);border:1px solid var(--line-strong);color:var(--ink);padding:10px 12px;border-radius:10px;font:inherit;font-size:15px}
+  .me-bar input:focus{outline:none;border-color:var(--lime)}
+  .me-bar .who-pill{font-weight:800;color:var(--lime)}
+
+  /* NAV */
+  nav.tabs{position:sticky;top:0;z-index:50;background:rgba(8,19,15,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none}
+  nav.tabs .wrap::-webkit-scrollbar{display:none}
+  nav.tabs a{white-space:nowrap;color:var(--muted);text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid transparent}
+  nav.tabs a:hover{color:var(--ink);border-color:var(--line)}
+
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(28px,5vw,44px)}
+  .sec-head .tag{font-size:13px;color:var(--muted);font-weight:600}
+  .sec-head .bar{flex:1;height:1px;background:var(--line)}
+
+  /* FIXTURES */
+  .fix-note{color:var(--muted);font-size:14px;margin-bottom:20px;max-width:60ch}
+  .fix-grid{display:grid;gap:12px}
+  .eng{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:linear-gradient(100deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:var(--r);padding:16px 18px}
+  .eng .date{font-family:'Anton',sans-serif;font-size:15px;color:var(--orange);text-align:center;min-width:58px}
+  .eng .date span{display:block;font-size:26px;color:var(--ink)}
+  .eng .match{font-family:'Anton',sans-serif;font-size:clamp(18px,3vw,24px)}
+  .eng .meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .eng .meta b{color:var(--ink)}
+  .eng .ch{font-size:12px;font-weight:800;letter-spacing:.05em;padding:5px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--gold);white-space:nowrap}
+  .keydates{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .keydates .kd{flex:1;min-width:180px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .keydates .kd .t{font-family:'Anton',sans-serif;color:var(--lime);font-size:14px;letter-spacing:.04em}
+  .keydates .kd .d{font-size:14px;color:var(--muted);margin-top:4px}
+  .odds1x2{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px;align-items:center}
+  .odds1x2 .o{font-size:12.5px;font-weight:700;color:var(--ink);background:var(--night);border:1px solid var(--line);padding:4px 9px;border-radius:8px}
+  .odds1x2 .o i{font-style:normal;color:var(--muted);font-weight:600;margin-right:3px}
+  .odds1x2 .ind{font-size:11px;color:var(--orange);font-weight:700}
+
+  /* OUTRIGHT ODDS */
+  .odds-intro{color:var(--muted);font-size:14px;max-width:60ch;margin-bottom:20px}
+  .odds-list{display:grid;gap:9px;max-width:640px}
+  .odds-row{display:grid;grid-template-columns:24px 130px 1fr auto;gap:12px;align-items:center}
+  .odds-row .rank{font-family:'Anton',sans-serif;color:var(--muted);font-size:15px;text-align:center}
+  .odds-row .team{font-weight:700;font-size:15px}
+  .odds-row .track{height:12px;background:var(--panel);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .odds-row .fill{display:block;height:100%;background:linear-gradient(90deg,var(--lime),rgba(214,255,63,.35));border-radius:999px}
+  .odds-row .price{font-family:'Anton',sans-serif;font-size:17px;color:var(--gold);min-width:46px;text-align:right}
+  .odds-row.eng-row .team{color:var(--lime)}
+  .odds-row.eng-row .fill{background:linear-gradient(90deg,var(--orange),rgba(255,90,31,.4))}
+  .odds-row.eng-row .price{color:var(--orange)}
+  .gamble{margin-top:22px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  .gamble b{color:var(--ink)}
+  @media(max-width:520px){.odds-row{grid-template-columns:20px 92px 1fr auto;gap:8px}.odds-row .team{font-size:13.5px}}
+
+  /* PUBS */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .filters button{font:inherit;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:9px 15px;border-radius:999px;cursor:pointer;transition:.15s}
+  .filters button:hover{color:var(--ink);border-color:var(--line-strong)}
+  .filters button.active{background:var(--lime);color:#0a1009;border-color:var(--lime)}
+  .pubs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .pub{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px;transition:.18s;position:relative;overflow:hidden}
+  .pub:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+  .pub .town{position:absolute;top:14px;right:14px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);background:rgba(214,255,63,.10);padding:4px 9px;border-radius:999px}
+  .pub h3{font-size:21px;padding-right:70px}
+  .pub .addr{font-size:13px;color:var(--muted)}
+  .pub .rate{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+  .pub .stars{color:var(--gold);font-weight:800}
+  .pub .desc{font-size:13.5px;color:var(--ink);opacity:.86}
+  .pub .links{margin-top:auto;display:flex;gap:10px;padding-top:6px}
+  .pub .links a{font-size:13px;font-weight:700;color:var(--lime);text-decoration:none;border-bottom:1px solid transparent}
+  .pub .links a:hover{border-color:var(--lime)}
+
+  /* WATCH BOARD */
+  .board-intro{color:var(--muted);font-size:14px;max-width:62ch;margin-bottom:20px}
+  .board-intro b{color:var(--ink)}
+  .planform{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:14px;margin-bottom:26px}
+  .planform .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .field input,.field select,.field textarea{background:var(--night);border:1px solid var(--line-strong);color:var(--ink);padding:11px 12px;border-radius:10px;font:inherit;font-size:15px}
+  .field textarea{resize:vertical;min-height:46px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--lime)}
+  .field .check{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink);cursor:pointer;padding-top:6px}
+  .field .check input{width:18px;height:18px;accent-color:var(--lime)}
+  .btn{font:inherit;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.03em;text-transform:uppercase;background:var(--lime);color:#0a1009;border:none;padding:13px 22px;border-radius:11px;cursor:pointer;justify-self:start;transition:.15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+  .plans{display:grid;gap:14px}
+  .plan{background:linear-gradient(100deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px}
+  .plan .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .plan .match{font-family:'Anton',sans-serif;font-size:20px}
+  .plan .badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+  .plan .badge{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted)}
+  .plan .badge.town{color:var(--lime);border-color:rgba(214,255,63,.4)}
+  .plan .badge.open{color:#0a1009;background:var(--gold);border-color:var(--gold)}
+  .plan .badge.closed{color:var(--orange);border-color:rgba(255,90,31,.4)}
+  .plan .venue{font-size:15px;color:var(--ink)}
+  .plan .venue b{color:var(--ink)}
+  .plan .host{font-size:13px;color:var(--muted)}
+  .plan .host b{color:var(--gold)}
+  .plan .note{font-size:14px;color:var(--ink);opacity:.85;font-style:italic;border-left:2px solid var(--line-strong);padding-left:10px}
+  .plan .goers{font-size:13.5px;color:var(--muted)}
+  .plan .goers b{color:var(--lime)}
+  .plan .actions{display:flex;gap:10px;margin-top:2px}
+  .plan .actions button{font:inherit;font-weight:700;font-size:13px;padding:8px 14px;border-radius:9px;cursor:pointer;border:1px solid var(--line-strong);background:transparent;color:var(--ink);transition:.15s}
+  .plan .actions .join{background:var(--lime);color:#0a1009;border-color:var(--lime)}
+  .plan .actions .join.in{background:transparent;color:var(--lime)}
+  .plan .actions button:hover{transform:translateY(-1px)}
+  .plan .actions .del{color:var(--orange);border-color:rgba(255,90,31,.35);margin-left:auto}
+  .empty{text-align:center;color:var(--muted);padding:40px 20px;border:1px dashed var(--line-strong);border-radius:var(--r);font-size:15px}
+
+  /* FANZONES */
+  .fz{background:linear-gradient(120deg,var(--panel),#0d1f28);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px}
+  .fz:hover{transform:translateY(-3px);border-color:rgba(214,255,63,.4);transition:.18s}
+  .fz .fz-town{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);background:rgba(214,255,63,.12);padding:4px 9px;border-radius:999px;align-self:flex-start}
+  .fz .fz-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0a1009;background:var(--lime);padding:4px 10px;border-radius:999px}
+  .fz h3{font-size:20px;margin-top:2px}
+  .fz .fz-addr{font-size:13px;color:var(--muted)}
+  .fz .fz-desc{font-size:13.5px;color:var(--ink);opacity:.88}
+  .fz .fz-detail{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+  .fz .fz-detail span{font-size:12px;font-weight:700;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:4px 9px;border-radius:8px}
+  .fz .fz-detail span b{color:var(--ink)}
+  .fz .fz-links{margin-top:auto;display:flex;gap:10px;padding-top:6px;flex-wrap:wrap}
+  .fz .fz-links a{font-size:13px;font-weight:700;color:var(--lime);text-decoration:none;border-bottom:1px solid transparent}
+  .fz .fz-links a:hover{border-color:var(--lime)}
+  .fz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .fz-note{color:var(--muted);font-size:14px;margin-bottom:20px;max-width:62ch}
+
+  footer{padding:34px 0;text-align:center;color:var(--muted);font-size:13px}
+  footer b{color:var(--ink)}
+  @media(max-width:560px){
+    .eng{grid-template-columns:auto 1fr;}
+    .eng .ch{grid-column:2;justify-self:start}
+    .planform .row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="pitch-lines"><div class="circle"></div><div class="circle sm"></div></div>
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span> World Cup 2026 · USA · Canada · Mexico</span>
+    <h1>Where are <em>we</em> watching the football?</h1>
+    <p class="sub">The group plan for Barnstaple, Brighton, Crawley, London, Hale &amp; the Malta crew. <b>Every game is free-to-air on BBC &amp; ITV</b> — so pick a pub, post where you'll be, and see who can join.</p>
+
+    <div class="count" id="countdown"></div>
+
+    <div class="me-bar">
+      <label for="meName">You are</label>
+      <input id="meName" type="text" placeholder="Type your name (so the lads know it's you)" maxlength="24" autocomplete="off">
+      <span class="who-pill" id="whoPill"></span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <a href="#fixtures">Fixtures</a>
+  <a href="#odds">The Odds</a>
+  <a href="#pubs">The Pubs</a>
+  <a href="#board">Who's Watching Where</a>
+  <a href="#fanzones">Fan Zones</a>
+</div></nav>
+
+<section id="fixtures">
+  <div class="wrap">
+    <div class="sec-head"><h2>England's Group L</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
+    <p class="fix-note">Tuchel's lot are with Croatia, Ghana &amp; Panama — all three group games are evening kick-offs back home. Channels confirmed by BBC &amp; ITV.</p>
+    <div class="fix-grid" id="engFixtures"></div>
+
+    <div class="keydates">
+      <div class="kd"><div class="t">Opening Match</div><div class="d">Thu 11 Jun · Mexico v South Africa · 8pm BST</div></div>
+      <div class="kd"><div class="t">Group Stage</div><div class="d">11 Jun – 27 Jun · 12 groups of 4</div></div>
+      <div class="kd"><div class="t">The Final</div><div class="d">Sun 19 Jul · MetLife Stadium, New York/NJ</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="odds">
+  <div class="wrap">
+    <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
+    <p class="odds-intro">Who's lifting it in New Jersey? Outright winner prices below — England sit third behind Spain and France. The win/draw/win odds for each England game are on the fixture cards above.</p>
+    <div class="odds-list" id="outrightList"></div>
+    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in early June and move all the time — check a bookie for live odds before anything's official. * England v Ghana is indicative until the books firm up. 18+ · when the fun stops, stop · BeGambleAware.org</p>
+  </div>
+</section>
+
+<section id="pubs">
+  <div class="wrap">
+    <div class="sec-head"><h2>The Pubs</h2><span class="tag">screens, late licences &amp; a decent pint</span><span class="bar"></span></div>
+    <div class="filters" id="pubFilters"></div>
+    <div class="pubs" id="pubList"></div>
+  </div>
+</section>
+
+<section id="fanzones">
+  <div class="wrap">
+    <div class="sec-head"><h2>Fan Zones</h2><span class="tag">big screens · street food · the full atmosphere</span><span class="bar"></span></div>
+    <p class="fz-note">Proper fan zones confirmed for London and Brighton — ticketed events with massive outdoor screens, stadium sound and DJs. Prices and details correct as of early June; check links for the latest.</p>
+    <div class="fz-grid" id="fzList"></div>
+  </div>
+</section>
+
+<section id="board">
+  <div class="wrap">
+    <div class="sec-head"><h2>Who's Watching Where</h2><span class="tag">shared with the whole group</span><span class="bar"></span></div>
+    <p class="board-intro">Post your plan for any game and tick whether others can pile in — no more "anyone know where the game's on?" group-chat chaos. <span id="syncNote"></span></p>
+
+    <div class="planform">
+      <div class="row">
+        <div class="field">
+          <label for="pMatch">Which game</label>
+          <input id="pMatch" list="matchOptions" placeholder="e.g. England v Croatia" maxlength="50">
+          <datalist id="matchOptions"></datalist>
+        </div>
+        <div class="field">
+          <label for="pTown">Town</label>
+          <select id="pTown"></select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="pVenue">Venue</label>
+          <input id="pVenue" list="venueOptions" placeholder="Pick a pub or type one (or 'mine')" maxlength="50">
+          <datalist id="venueOptions"></datalist>
+        </div>
+        <div class="field">
+          <label for="pTime">Meeting / kick-off time (optional)</label>
+          <input id="pTime" placeholder="e.g. 8:30pm" maxlength="24">
+        </div>
+      </div>
+      <div class="field">
+        <label for="pNote">Note (optional)</label>
+        <textarea id="pNote" placeholder="e.g. Booking a table, getting there early for seats" maxlength="160"></textarea>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="pJoin" checked> Others can join me</label>
+      </div>
+      <button class="btn" id="addPlan">Post my plan</button>
+    </div>
+
+    <div class="plans" id="planList"></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  Built for the lads · World Cup '26 · <b>Up the Three Lions</b> 🦁 — and good luck to the Malta contingent watching at +1hr
+</footer>
+
+<script>
+// ---------- STORAGE ----------
+// Plans live in a Netlify Function backed by Netlify Blobs (/api/plans), so the
+// whole group syncs on the same board. If that endpoint isn't reachable (e.g. the
+// file is opened straight off disk), we fall back to this browser's localStorage
+// so it still runs — just per-device rather than shared.
+let BACKEND_LIVE = false;
+
+const LocalPlans = {
+  list(){ const out=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k && k.indexOf("wcwa::plan::")===0){ try{ out.push(JSON.parse(localStorage.getItem(k))); }catch(e){} } } return out; },
+  put(p){ localStorage.setItem("wcwa::plan::"+p.id, JSON.stringify(p)); },
+  del(id){ localStorage.removeItem("wcwa::plan::"+id); }
+};
+
+const Plans = {
+  async list(){
+    try{ const r = await fetch("/api/plans",{cache:"no-store"}); if(!r.ok) throw 0; const j = await r.json(); BACKEND_LIVE = true; return j.plans || []; }
+    catch(e){ BACKEND_LIVE = false; return LocalPlans.list(); }
+  },
+  async put(p){
+    try{ const r = await fetch("/api/plans",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)}); if(!r.ok) throw 0; BACKEND_LIVE = true; }
+    catch(e){ BACKEND_LIVE = false; LocalPlans.put(p); }
+  },
+  async del(id){
+    try{ const r = await fetch("/api/plans?id="+encodeURIComponent(id),{method:"DELETE"}); if(!r.ok) throw 0; BACKEND_LIVE = true; }
+    catch(e){ BACKEND_LIVE = false; LocalPlans.del(id); }
+  }
+};
+
+// Identity is per-device by nature, so it always lives in localStorage.
+const Me = {
+  get(){ try{ return localStorage.getItem("wcwa::me") || ""; }catch(e){ return ""; } },
+  set(v){ try{ localStorage.setItem("wcwa::me", v); }catch(e){} }
+};
+
+// ---------- DATA ----------
+const ENGLAND = [
+  {day:"WED", date:"17", mon:"JUN", match:"England v Croatia", venue:"Dallas", time:"9:00pm BST", ch:"ITV",
+   odds:[{lab:"England",p:"8/11"},{lab:"Draw",p:"27/10"},{lab:"Croatia",p:"15/4"}]},
+  {day:"TUE", date:"23", mon:"JUN", match:"England v Ghana",   venue:"Boston", time:"9:00pm BST", ch:"BBC",
+   odds:[{lab:"England",p:"1/3"},{lab:"Draw",p:"7/2"},{lab:"Ghana",p:"7/1"}], indicative:true},
+  {day:"SAT", date:"27", mon:"JUN", match:"Panama v England",  venue:"New York/NJ", time:"10:00pm BST", ch:"ITV",
+   odds:[{lab:"Panama",p:"12/1"},{lab:"Draw",p:"11/2"},{lab:"England",p:"1/4"}]},
+];
+
+// Outright winner — latest available prices (early June, best of the major UK books). Prices move.
+const OUTRIGHT = [
+  {team:"Spain",p:"5/1"},{team:"France",p:"6/1"},{team:"England",p:"7/1"},
+  {team:"Argentina",p:"8/1"},{team:"Brazil",p:"9/1"},{team:"Portugal",p:"11/1"},
+  {team:"Germany",p:"14/1"},{team:"Netherlands",p:"20/1"},{team:"Norway",p:"25/1"},
+];
+
+const PUBS = [
+  // Barnstaple
+  {town:"Barnstaple", name:"The Lookout", addr:"Queen St, EX32 8HJ", rating:4.8, count:42, desc:"New industrial-chic wine bar on Queen Street — Guinness, Asahi &amp; Peroni on tap, great atmosphere. Worth checking they&#39;re showing the match."},
+  {town:"Barnstaple", name:"Ebberley Arms", addr:"40 Bear St, EX32 7BZ", rating:4.6, count:216, desc:"Open round the clock with the game on two or three screens — a proper find for footy."},
+  {town:"Barnstaple", name:"The Royal Exchange", addr:"12A Joy St, EX31 1BS", rating:4.4, count:187, desc:"Shows the sport, has a pool table and a jukebox. Late licence, lively crowd."},
+  {town:"Barnstaple", name:"The Horse and Groom", addr:"41 Boutport St, EX31 1SE", rating:4.3, count:110, desc:"Multi-screen sport and happy to switch a screen to whatever you want to watch."},
+  {town:"Barnstaple", name:"The Rising Sun", addr:"29 Newport Rd, EX32 9BQ", rating:4.2, count:89, desc:"Multi-screen sports pub with pool, skittles and darts — a proper local that delivers on big match nights."},
+  {town:"Barnstaple", name:"The Strand Social", addr:"The Strand, EX31 1EU", rating:4.4, count:31, desc:"Barnstaple&#39;s newest pub — stylish interior, craft beer and big screens for sport right in the town centre."},
+  {town:"Barnstaple", name:"Green Man Bar &amp; Bistro", addr:"28 Pilton St, EX31 1PJ", rating:4.3, count:134, desc:"Sky Sports pub in Pilton with great food and local real ales — relaxed vibe and easy to get a seat."},
+  {town:"Barnstaple", name:"The Panniers (JD Wetherspoon)", addr:"33 Boutport St, EX31 1RX", rating:3.9, count:2140, desc:"Wetherspoon on the high street showing all World Cup games on screen — and the cheapest pint in town."},
+  {town:"Barnstaple", name:"The Reform Inn", addr:"2 Pilton Causeway, EX31 1PD", rating:4.5, count:412, desc:"CAMRA award-winning gem in Pilton with brilliant ales. Call ahead to check if they&#39;re showing the match."},
+  {town:"Barnstaple", name:"Royal &amp; Fortescue Hotel", addr:"2 Boutport St, EX31 1HG", rating:4.2, count:632, desc:"Grand old coaching inn right in the centre — bar and lounge areas regularly show sport on big screens."},
+  // Brighton
+  {town:"Brighton", name:"Ye Olde King &amp; Queen", addr:"13–17 Marlborough Pl, BN1 1UB", rating:4.3, count:2511, desc:"Big, buzzing pub with large screens, a great beer garden and room for a crowd."},
+  {town:"Brighton", name:"The Font", addr:"Union St, BN1 1HA", rating:4.5, count:2381, desc:"A converted church with one enormous sport screen — atmospheric and central."},
+  {town:"Brighton", name:"New Unity", addr:"52–53 London Rd, BN1 4JX", rating:4.5, count:450, desc:"15 screens, two projectors and booths across multiple floors — can get you your own space for a specific game."},
+  {town:"Brighton", name:"Bench Sports Bar", addr:"Kings Rd Arches, BN1 2FN", rating:4.4, count:620, desc:"Match-day central on the seafront arches — big screens, booming atmosphere and cracking sea views."},
+  {town:"Brighton", name:"North Laine Brewhouse", addr:"27 Sydney St, BN1 4EP", rating:4.3, count:890, desc:"Craft ales and pub grub in the heart of North Laine — a reliable go-to for Champions League and major tournaments."},
+  {town:"Brighton", name:"The Palmeira", addr:"70–71 Waterloo St, Hove, BN3 1AJ", rating:4.3, count:567, desc:"Six screens including one outside in the garden — can show three live games at once, worth the short stroll to Hove."},
+  {town:"Brighton", name:"The Pump House", addr:"46 Market St, BN1 1HH", rating:4.4, count:1240, desc:"Central Nicholson&#39;s pub with several screens just off the Lanes — solid choice before or after a wander."},
+  {town:"Brighton", name:"The Bright Helm (JD Wetherspoon)", addr:"Churchill Square, BN1 2EF", rating:3.9, count:1870, desc:"Wetherspoon near the shopping centre — all World Cup games on and the most affordable round in the city."},
+  {town:"Brighton", name:"Grosvenor Casino Pier Nine", addr:"Brighton Seafront, BN2 1TB", rating:4.2, count:430, desc:"Brighton&#39;s largest indoor screen in a casino setting — great for late kick-offs when everywhere else has closed."},
+  {town:"Brighton", name:"Crossbar", addr:"Ship St, BN1 1AF", rating:4.6, count:89, desc:"Brand new in 2026 — eight screens across two floors, purpose-built for watching sport. One of the best new additions in the city."},
+  // Crawley
+  {town:"Crawley", name:"The New Moon", addr:"Brighton Rd, RH10 6SZ", rating:4.2, count:413, desc:"Sports bar with a telly on every wall, pool, darts and a family-friendly vibe."},
+  {town:"Crawley", name:"Snooty Fox", addr:"279 Haslett Ave E, Three Bridges, RH10 1LX", rating:4.1, count:1422, desc:"Huge pub right by Three Bridges station — loads of space and a good kitchen."},
+  {town:"Crawley", name:"Tavern On The Green", addr:"Peterhouse Parade, RH10 3BA", rating:4.1, count:373, desc:"Friendly local with a late weekend licence and a decent beer garden."},
+  {town:"Crawley", name:"The White Hart", addr:"Northgate, RH10 1ES", rating:4.2, count:387, desc:"The only traditional pub in the original town centre — been there since before the new town existed."},
+  {town:"Crawley", name:"Brewery Shades", addr:"High St, RH10 1BQ", rating:4.2, count:512, desc:"Historic high street pub dating back to the 14th century — great ales and a proper atmosphere for the big match."},
+  {town:"Crawley", name:"The Railway", addr:"Station Rd, RH10 1HT", rating:4.3, count:290, desc:"Proper pub by the station showing all major sports on multiple screens — easy for anyone coming in by train."},
+  {town:"Crawley", name:"The George (JD Wetherspoon)", addr:"7–9 High St, RH10 1BQ", rating:3.9, count:1560, desc:"Wetherspoon on the high street — all World Cup games on and the cheapest drink in Crawley."},
+  {town:"Crawley", name:"The Apple Tree", addr:"Ifield Rd, RH11 0BS", rating:4.0, count:213, desc:"Family-friendly pub in west Crawley with sport on screen — a decent local for those away from the centre."},
+  {town:"Crawley", name:"Maidenbower Sports &amp; Social", addr:"Harvest Ride, RH10 7PJ", rating:3.9, count:67, desc:"Community sports club open to guests — 7 TVs, pool tables and a large function room for the big occasions."},
+  {town:"Crawley", name:"Goffs Park Social Club", addr:"Goffs Park Rd, RH11 8AX", rating:4.0, count:134, desc:"Members&#39; club near Goffs Park open to guests — relaxed football atmosphere with sport on multiple screens."},
+  // London
+  {town:"London", name:"Goldwood", addr:"30 Old Jewry, EC2R 8DQ", rating:4.8, count:1700, desc:"Unashamedly sport-first: screens everywhere and multiple feeds running at once."},
+  {town:"London", name:"Kings Sports Bar (Empire Casino)", addr:"5–6 Leicester Square, WC2H 7NA", rating:4.5, count:1057, desc:"Open 24 hours in Leicester Square — sorted for those very late kick-offs."},
+  {town:"London", name:"The Three Lanterns", addr:"5 Lisle St, WC2H 7BG", rating:4.5, count:663, desc:"Big, accessible screens off Leicester Square with a relaxed local feel."},
+  {town:"London", name:"O&#39;Neill&#39;s Wardour Street", addr:"33–37 Wardour St, W1D 6PU", rating:4.4, count:10469, desc:"Soho institution, open till the small hours — handles a big match-night crowd."},
+  {town:"London", name:"BLOODsports", addr:"27–29 Endell St, WC2H 9BA", rating:4.6, count:420, desc:"Sport-first bar in Covent Garden showing football from across the globe — reliably packed for England games."},
+  {town:"London", name:"Porterhouse", addr:"21–22 Maiden Ln, WC2E 7NA", rating:4.4, count:3120, desc:"Multi-floor Irish bar with screens everywhere and its own house beers — a WC2 institution."},
+  {town:"London", name:"The Greenwood", addr:"170 Victoria St, SW1E 5LB", rating:4.1, count:890, desc:"Vast pub near Victoria with 20 big screens — one of the safest bets in London for finding a spot."},
+  {town:"London", name:"Flatiron Square", addr:"45 Southwark St, SE1 9HP", rating:4.5, count:567, desc:"16 screens inside and outside this archways complex — a brilliant outdoor setting if the weather&#39;s good."},
+  {town:"London", name:"Market Halls Victoria", addr:"Cardinal Place, SW1E 5JE", rating:4.4, count:1200, desc:"Food hall with a huge screen and independent food vendors — relaxed but loud crowd for the big games."},
+  {town:"London", name:"Nordic Bar", addr:"25 Newman St, W1T 1PN", rating:4.3, count:290, desc:"Scandinavian bar in Fitzrovia with four large screens — less touristy than Soho, always shows the footy."},
+  // Hale / Altrincham
+  {town:"Hale", name:"The King George", addr:"Moss Ln, Hale, WA15 8BA", rating:4.3, count:399, desc:"Warm, welcoming and a couple of minutes from Altrincham FC — good pre-match pint."},
+  {town:"Hale", name:"Gallagher&#39;s Altrincham", addr:"57 Stamford New Rd, WA14 1DS", rating:4.4, count:388, desc:"Shows the football and gets busy on match days — worth booking a table."},
+  {town:"Hale", name:"The Bricklayers", addr:"68 George St, Altrincham, WA14 1RF", rating:4.2, count:305, desc:"A proper traditional boozer with a cracking atmosphere in the town centre."},
+  {town:"Hale", name:"The Orange Tree", addr:"11 Old Market Pl, WA14 4NP", rating:4.3, count:567, desc:"Busy town-centre pub on the Old Market Place — sport on screen with a good weekend crowd."},
+  {town:"Hale", name:"The Navigation", addr:"122 Manchester Rd, WA14 4PB", rating:4.2, count:234, desc:"Three big screens with Sky Sports, TNT and free-to-air — a reliable local for Premier League and big tournaments."},
+  {town:"Hale", name:"The Unicorn", addr:"1–7 Ashley Rd, WA14 2DP", rating:4.3, count:445, desc:"Classic pub on Ashley Road with multiple screens and a late bar on weekends."},
+  {town:"Hale", name:"Libero Sports Bar", addr:"Kings Court, Altrincham, WA14 4DB", rating:4.6, count:189, desc:"Altrincham&#39;s dedicated independent sports bar in Kings Court — purpose-built for watching football."},
+  {town:"Hale", name:"The Old Market Tavern", addr:"Old Market Pl, WA14 4DE", rating:4.1, count:178, desc:"Traditional Altrincham boozer steps from the market — gets lively for the big games."},
+  {town:"Hale", name:"Cresta Court Hotel Bar", addr:"Church St, WA14 4DP", rating:4.0, count:312, desc:"Hotel bar with Sky Sports — a reliable choice if the town pubs are rammed on a big England night."},
+  {town:"Hale", name:"The Victoria (JD Wetherspoon)", addr:"27–31 George St, WA14 1RJ", rating:3.8, count:1890, desc:"All World Cup games on screen and the cheapest round in Altrincham — ideal pre-match or overflow option."},
+  // Malta
+  {town:"Malta", name:"Hugo&#39;s Pub", addr:"St Rita Steps, Paceville, STJ 3340", rating:4.7, count:2890, desc:"Top of every Malta sports bar list — tons of TVs, great food, buzzing Paceville location. Get there early for England games."},
+  {town:"Malta", name:"The Dubliner Irish Pub", addr:"George Borg Olivier St, St Julian&#39;s", rating:4.6, count:1234, desc:"Overlooks St Julian&#39;s Bay with Sky Sports and TNT — Guinness €4.75, Stella under €4. A brilliant spot."},
+  {town:"Malta", name:"Surfside", addr:"Tower Rd, Sliema", rating:4.5, count:678, desc:"Rooftop terrace with sea views plus a dedicated sports bar floor — classy spot for a big game."},
+  {town:"Malta", name:"Salisbury Arms", addr:"Triq Il-Kbira, Sliema", rating:4.6, count:1574, desc:"Long-running English pub in Sliema, open very late — classic spot for the game."},
+  {town:"Malta", name:"The Londoner Pub", addr:"83 The Strand, Sliema SLM 1022", rating:4.4, count:989, desc:"Lively Strand-front pub with sport on, late opening and proper fish &amp; chips."},
+  {town:"Malta", name:"Black Gold Saloon", addr:"Triq Ix-Xatt, Sliema", rating:4.2, count:3539, desc:"Plenty of screens for sports fans right on the Sliema seafront strip."},
+  {town:"Malta", name:"Step Down Bar", addr:"161 Triq Manwel Dimech, Sliema", rating:4.4, count:234, desc:"Cosy corner bar in Sliema that shows Premier League and Champions League — also claims the best Sunday roast in Malta."},
+  {town:"Malta", name:"Rapid Sports Lounge", addr:"Tourist St, St Paul&#39;s Bay", rating:4.5, count:890, desc:"Four huge screens across two floors in St Paul&#39;s — Stella, Heineken, Guinness and local Cisk on tap."},
+  {town:"Malta", name:"Fat Harry&#39;s Pub", addr:"38 St Zachary St, Valletta", rating:4.4, count:567, desc:"Gastro pub in Valletta with solid TV coverage — more relaxed than Paceville, great for a mixed group."},
+  {town:"Malta", name:"Queen Victoria", addr:"20 South St, Valletta, VLT 1103", rating:4.3, count:445, desc:"Traditional English pub in Valletta showing live English football — book ahead for a table with a good screen view."},
+];
+
+const FANZONES = [
+  // London
+  {town:"London", name:"The Garden Vauxhall", addr:"6 South Lambeth Place, SW8 1SP", capacity:"2,000+", tickets:"from £10", website:"https://www.thegardenvauxhall.co.uk/", desc:"One of London&#39;s largest outdoor beer gardens transformed into a full fan zone — massive LED screens, stadium sound, street food vendors, DJs, and covered areas for every match from 5pm.", times:"5pm–midnight · every match · Jun 11–Jul 19"},
+  {town:"London", name:"Outernet London (Kick Off Club)", addr:"Denmark St, WC2H 0LA", capacity:"1,000+", tickets:"ticketed", website:"https://outernet.london/", desc:"London&#39;s largest indoor screen with full surround sound in the heart of the West End — immersive atmosphere, multiple bars, and live hosts for every England game."},
+  {town:"London", name:"Electric Brixton (Kick Off Club)", addr:"1 Town Hall Parade, Brixton, SW2 1RJ", capacity:"1,500", tickets:"ticketed", website:"https://electricbrixton.uk.com/", desc:"South London&#39;s iconic venue turned fan zone — club lighting, DJs, a Britpop-led soundtrack and a huge screen. One of the most atmospheric watches in the city."},
+  {town:"London", name:"Brick Lane Fan Zone", addr:"Ely&#39;s Yard, Hanbury St, E1 6QR", capacity:"600", tickets:"free/ticketed", website:"https://www.elysyard.co.uk/", desc:"Indoor and outdoor giant LED screen in the heart of Brick Lane — Signature Brew beers, Sleazy Pizza, DJs, live music and giveaways. Relaxed East London vibe."},
+  {town:"London", name:"Dagenham &amp; Redbridge FC (FanPark)", addr:"Victoria Rd, Dagenham, RM10 7XL", capacity:"2,000", tickets:"ticketed", website:"https://www.fanpark.co.uk/", desc:"FANPARK&#39;s full festival-style experience at the Daggers&#39; ground — big screens, craft beer, street food, live hosts and giveaways. One of the best-value fan zones in London."},
+  // Brighton
+  {town:"Brighton", name:"Central Park on Brighton Beach", addr:"Madeira Dr, Brighton, BN2 1EN", capacity:"5,000", tickets:"from £4.50", website:"https://www.brightonandhovenews.org/2026/03/31/central-park-on-brighton-beach-launches-summer-of-music-and-world-cup-entertainment/", desc:"The big one for Brighton — 50-metre screens with world-class sound, pyrotechnic goal celebrations, a football legend at every England game, DJs, food and drink. All England group games plus the final. On the seafront.", times:"Jun 11–Jul 19 · all England matches + final"},
+  {town:"Brighton", name:"The Terrace at Amex Stadium", addr:"American Express Stadium, BN1 9BL", capacity:"3,000", tickets:"check website", website:"https://www.brightonandhovealbion.com/", desc:"Brighton &amp; Hove Albion&#39;s purpose-built fan zone at the Amex — the largest in the Premier League with 1,000 indoors and 2,000 outside. Proper stadium atmosphere without the flights."},
+];
+
+const TOWNS = ["Barnstaple","Brighton","Crawley","London","Hale","Malta"];
+
+// ---------- IDENTITY (personal storage) ----------
+let myName = "";
+const meInput = document.getElementById("meName");
+const whoPill = document.getElementById("whoPill");
+
+async function loadMe(){
+  myName = Me.get(); if(myName) meInput.value = myName;
+  updateWho();
+}
+function updateWho(){ whoPill.textContent = myName ? "✓ "+myName : ""; renderPlans(); }
+meInput.addEventListener("input", (e)=>{
+  myName = e.target.value.trim();
+  updateWho();
+  Me.set(myName);
+});
+
+// ---------- COUNTDOWN ----------
+const KICKOFF = new Date("2026-06-11T19:00:00Z"); // 8pm BST opening match
+function renderCountdown(){
+  const el = document.getElementById("countdown");
+  const now = new Date();
+  let diff = Math.max(0, KICKOFF - now);
+  const d = Math.floor(diff/86400000); diff-=d*86400000;
+  const h = Math.floor(diff/3600000); diff-=h*3600000;
+  const m = Math.floor(diff/60000); diff-=m*60000;
+  const s = Math.floor(diff/1000);
+  if(KICKOFF - now <= 0){
+    el.innerHTML = '<div class="what" style="color:var(--lime);font-weight:700">⚽ The World Cup is underway — get to the pub!</div>';
+    return;
+  }
+  const cell=(n,l)=>`<div class="cell"><div class="num">${String(n).padStart(2,'0')}</div><div class="lab">${l}</div></div>`;
+  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Thu 11 Jun</div>';
+}
+
+// ---------- FIXTURES ----------
+function renderFixtures(){
+  document.getElementById("engFixtures").innerHTML = ENGLAND.map(f=>`
+    <div class="eng">
+      <div class="date">${f.day}<span>${f.date}</span>${f.mon}</div>
+      <div>
+        <div class="match">${f.match}</div>
+        <div class="meta"><b>${f.time}</b> · ${f.venue}, USA</div>
+        <div class="odds1x2">${f.odds.map(o=>`<span class="o"><i>${o.lab}</i> ${o.p}</span>`).join("")}${f.indicative?'<span class="ind">indicative *</span>':''}</div>
+      </div>
+      <div class="ch">${f.ch}</div>
+    </div>`).join("");
+}
+
+function renderOutright(){
+  const el = document.getElementById("outrightList");
+  if(!el) return;
+  el.innerHTML = OUTRIGHT.map((t,i)=>{
+    const dec = (()=>{const[a,b]=t.p.split("/");return parseInt(a)/parseInt(b)+1;})();
+    const w = Math.max(8, Math.min(100, 540/dec)); // longer bar = shorter price = bigger chance
+    const eng = t.team==="England";
+    return `<div class="odds-row ${eng?'eng-row':''}">
+      <span class="rank">${i+1}</span>
+      <span class="team">${t.team}${eng?' 🦁':''}</span>
+      <span class="track"><span class="fill" style="width:${Math.min(100,w)}%"></span></span>
+      <span class="price">${t.p}</span>
+    </div>`;
+  }).join("");
+}
+
+// ---------- PUBS ----------
+let activeFilter = "All";
+function mapsLink(p){ return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p.name+" "+p.addr); }
+function renderFilters(){
+  const f = document.getElementById("pubFilters");
+  const all = ["All",...TOWNS];
+  f.innerHTML = all.map(t=>`<button class="${t===activeFilter?'active':''}" data-t="${t}">${t}</button>`).join("");
+  f.querySelectorAll("button").forEach(b=>b.onclick=()=>{activeFilter=b.dataset.t;renderFilters();renderPubs();});
+}
+function renderPubs(){
+  const list = PUBS.filter(p=>activeFilter==="All"||p.town===activeFilter);
+  document.getElementById("pubList").innerHTML = list.map(p=>`
+    <div class="pub">
+      <span class="town">${p.town}</span>
+      <h3>${p.name}</h3>
+      <div class="rate"><span class="stars">★ ${p.rating.toFixed(1)}</span> <span>${p.count.toLocaleString()} reviews</span></div>
+      <div class="addr">${p.addr}</div>
+      <div class="desc">${p.desc}</div>
+      <div class="links">
+        <a href="${mapsLink(p)}" target="_blank" rel="noopener">Map &amp; directions ↗</a>
+      </div>
+    </div>`).join("");
+}
+
+// ---------- WATCH BOARD (shared storage) ----------
+function populateFormOptions(){
+  const ml = document.getElementById("matchOptions");
+  const opts = [...ENGLAND.map(f=>f.match),"Opening match","Final"];
+  ml.innerHTML = opts.map(o=>`<option value="${o}">`).join("");
+  const ts = document.getElementById("pTown");
+  ts.innerHTML = TOWNS.map(t=>`<option value="${t}">${t}</option>`).join("");
+  refreshVenueOptions();
+  ts.addEventListener("change", refreshVenueOptions);
+}
+function refreshVenueOptions(){
+  const town = document.getElementById("pTown").value;
+  const vl = document.getElementById("venueOptions");
+  const names = PUBS.filter(p=>p.town===town).map(p=>p.name);
+  names.push("Mine (watching at home)");
+  vl.innerHTML = names.map(n=>`<option value="${n}">`).join("");
+}
+
+const planListEl = document.getElementById("planList");
+let PLANS = [];
+
+async function loadPlans(){
+  PLANS = await Plans.list();
+  PLANS.sort((a,b)=>(a.created||0)-(b.created||0));
+  renderPlans();
+  updateSyncNote();
+}
+
+function updateSyncNote(){
+  const note = document.getElementById("syncNote");
+  if(!note) return;
+  note.innerHTML = BACKEND_LIVE
+    ? '<b>Live &amp; shared:</b> everyone on the link sees the same board.'
+    : '<b>Local mode:</b> saved on this device only — once the Netlify function is live, the whole group syncs.';
+}
+
+function renderPlans(){
+  if(!PLANS.length){
+    planListEl.innerHTML = '<div class="empty">No plans posted yet. Be the first — pick a game above and post where you\'ll be watching. ⚽</div>';
+    return;
+  }
+  planListEl.innerHTML = PLANS.map(p=>{
+    const goers = p.joining||[];
+    const iAmIn = myName && goers.includes(myName);
+    const isMine = myName && p.who===myName;
+    const openBadge = p.open
+      ? '<span class="badge open">Join welcome</span>'
+      : '<span class="badge closed">Closed plan</span>';
+    return `<div class="plan">
+      <div class="top">
+        <div>
+          <div class="match">${esc(p.match||"A game")}</div>
+          <div class="badges"><span class="badge town">${esc(p.town)}</span>${openBadge}${p.time?`<span class="badge">${esc(p.time)}</span>`:""}</div>
+        </div>
+      </div>
+      <div class="venue">📍 <b>${esc(p.venue||"TBC")}</b></div>
+      <div class="host">Posted by <b>${esc(p.who||"someone")}</b></div>
+      ${p.note?`<div class="note">${esc(p.note)}</div>`:""}
+      ${goers.length?`<div class="goers">Going: <b>${goers.map(esc).join(", ")}</b></div>`:`<div class="goers">No one's joined yet</div>`}
+      <div class="actions">
+        ${p.open?`<button class="join ${iAmIn?'in':''}" data-id="${p.id}" data-act="join">${iAmIn?'✓ You\'re in — tap to drop out':'Count me in'}</button>`:""}
+        ${isMine?`<button class="del" data-id="${p.id}" data-act="del">Delete</button>`:""}
+      </div>
+    </div>`;
+  }).join("");
+  planListEl.querySelectorAll("button[data-act]").forEach(b=>{
+    b.onclick=()=>b.dataset.act==="join"?toggleJoin(b.dataset.id):deletePlan(b.dataset.id);
+  });
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+async function addPlan(){
+  if(!myName){ alert("Pop your name in at the top first so the lads know it's you."); meInput.focus(); return; }
+  const match=document.getElementById("pMatch").value.trim();
+  const town=document.getElementById("pTown").value;
+  const venue=document.getElementById("pVenue").value.trim();
+  const time=document.getElementById("pTime").value.trim();
+  const note=document.getElementById("pNote").value.trim();
+  const open=document.getElementById("pJoin").checked;
+  if(!match){ alert("Which game are you watching?"); return; }
+  if(!venue){ alert("Where are you watching it?"); return; }
+  const id="p_"+Date.now()+"_"+Math.random().toString(36).slice(2,7);
+  const plan={id,who:myName,match,town,venue,time,note,open,joining:[],created:Date.now()};
+  const btn=document.getElementById("addPlan"); btn.disabled=true; btn.textContent="Posting…";
+  try{
+    await Plans.put(plan);
+    document.getElementById("pMatch").value="";document.getElementById("pVenue").value="";
+    document.getElementById("pTime").value="";document.getElementById("pNote").value="";
+    await loadPlans();
+  }catch(e){ alert("Couldn't save that — try again in a sec."); }
+  btn.disabled=false; btn.textContent="Post my plan";
+}
+
+async function toggleJoin(id){
+  if(!myName){ alert("Add your name at the top first."); meInput.focus(); return; }
+  const plan=PLANS.find(p=>p.id===id); if(!plan) return;
+  plan.joining=plan.joining||[];
+  const i=plan.joining.indexOf(myName);
+  if(i>=0) plan.joining.splice(i,1); else plan.joining.push(myName);
+  try{ await Plans.put(plan); await loadPlans(); }
+  catch(e){ alert("Couldn't update — try again."); }
+}
+
+async function deletePlan(id){
+  const plan=PLANS.find(p=>p.id===id); if(!plan) return;
+  if(plan.who!==myName){ alert("You can only delete your own plans."); return; }
+  if(!confirm("Delete this plan?")) return;
+  try{ await Plans.del(id); await loadPlans(); }
+  catch(e){ alert("Couldn't delete — try again."); }
+}
+
+document.getElementById("addPlan").onclick=addPlan;
+
+// ---------- INIT ----------
+function renderFanzones(){
+  const el = document.getElementById("fzList"); if(!el) return;
+  el.innerHTML = FANZONES.map(z=>`
+    <div class="fz">
+      <span class="fz-town">${esc(z.town)}</span>
+      <span class="fz-badge">⚽ Fan Zone</span>
+      <h3>${esc(z.name)}</h3>
+      <div class="fz-addr">${esc(z.addr)}</div>
+      <div class="fz-desc">${z.desc}</div>
+      <div class="fz-detail">
+        ${z.capacity?`<span>👥 <b>${esc(z.capacity)}</b></span>`:""}
+        ${z.tickets?`<span>🎟 <b>${esc(z.tickets)}</b></span>`:""}
+        ${z.times?`<span>🕔 ${esc(z.times)}</span>`:""}
+      </div>
+      <div class="fz-links">
+        <a href="${esc(z.website)}" target="_blank" rel="noopener">Website &amp; tickets ↗</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(z.name+' '+z.addr)}" target="_blank" rel="noopener">Map ↗</a>
+      </div>
+    </div>`).join("");
+}
+
+renderCountdown(); setInterval(renderCountdown,1000);
+renderFixtures();
+renderOutright();
+renderFilters(); renderPubs();
+renderFanzones();
+populateFormOptions();
+loadMe();
+loadPlans();
+setInterval(loadPlans, 20000); // keep the board roughly in sync
+</script>
+</body>
+</html>
