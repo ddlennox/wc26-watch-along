@@ -5,7 +5,7 @@
    - Registers the service worker so the site installs as an app
    - Loads tables.js (group tables / knockout bracket)
    Hooks into the globals defined by index.html's inline script (PUBS, TOWNS,
-   mapsLink, esc, renderPubs, renderFilters) — classic scripts share scope. */
+   FANZONES, mapsLink, esc) — classic scripts share scope. */
 (function () {
   "use strict";
 
@@ -22,6 +22,7 @@
     ".pub .links .pub-plan{color:var(--gold)}" +
     ".pub .links .pub-plan:hover{border-color:var(--gold)}" +
     ".filters .pf-all{border-style:dashed}" +
+    "#fzFilters{margin-bottom:20px}" +
     ".mc-plan{width:100%;margin-top:8px;font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.02em;color:var(--lime);background:transparent;border:1px dashed var(--line-strong);border-radius:8px;padding:7px;cursor:pointer}" +
     ".mc-plan:hover{border-color:var(--lime)}";
   document.head.appendChild(css);
@@ -72,6 +73,68 @@
     listEl.querySelectorAll(".pub-plan").forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); planPub(a.dataset.town, a.dataset.venue); });
     });
+  }
+
+  // ---------- fan zone filter (All / None, by town) ----------
+  function setupFanzones() {
+    if (typeof FANZONES === "undefined") return;
+    var fzList = $("fzList");
+    if (!fzList) return;
+    var fzTowns = [];
+    FANZONES.forEach(function (z) { if (fzTowns.indexOf(z.town) < 0) fzTowns.push(z.town); });
+    var fzSel = new Set(fzTowns);
+
+    var bar = $("fzFilters");
+    if (!bar) {
+      bar = document.createElement("div");
+      bar.id = "fzFilters";
+      bar.className = "filters";
+      fzList.parentNode.insertBefore(bar, fzList);
+    }
+
+    function fzCard(z) {
+      return '<div class="fz">' +
+        '<span class="fz-town">' + esc(z.town) + "</span>" +
+        '<span class="fz-badge">⚽ Fan Zone</span>' +
+        "<h3>" + esc(z.name) + "</h3>" +
+        '<div class="fz-addr">' + esc(z.addr) + "</div>" +
+        '<div class="fz-desc">' + z.desc + "</div>" +
+        '<div class="fz-detail">' +
+          (z.capacity ? "<span>👥 <b>" + esc(z.capacity) + "</b></span>" : "") +
+          (z.tickets ? "<span>🎟 <b>" + esc(z.tickets) + "</b></span>" : "") +
+          (z.times ? "<span>🕔 " + esc(z.times) + "</span>" : "") +
+        "</div>" +
+        '<div class="fz-links">' +
+          '<a href="' + esc(z.website) + '" target="_blank" rel="noopener">Website &amp; tickets ↗</a>' +
+          '<a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(z.name + " " + z.addr) + '" target="_blank" rel="noopener">Map ↗</a>' +
+        "</div>" +
+      "</div>";
+    }
+
+    function renderFz() {
+      var list = FANZONES.filter(function (z) { return fzSel.has(z.town); });
+      if (!list.length) { fzList.innerHTML = '<div class="empty">No towns selected — tap a town above to show fan zones. 📺</div>'; return; }
+      fzList.innerHTML = list.map(fzCard).join("");
+    }
+
+    function renderFzFilters() {
+      var html = '<button class="pf-all" data-act="all">All</button>' +
+                 '<button class="pf-all" data-act="none">None</button>';
+      html += fzTowns.map(function (t) {
+        return '<button class="' + (fzSel.has(t) ? "active" : "") + '" data-t="' + t + '">' + t + "</button>";
+      }).join("");
+      bar.innerHTML = html;
+      bar.querySelectorAll("button[data-t]").forEach(function (b) {
+        b.onclick = function () {
+          if (fzSel.has(b.dataset.t)) fzSel.delete(b.dataset.t); else fzSel.add(b.dataset.t);
+          renderFzFilters(); renderFz();
+        };
+      });
+      bar.querySelector('[data-act="all"]').onclick = function () { fzTowns.forEach(function (t) { fzSel.add(t); }); renderFzFilters(); renderFz(); };
+      bar.querySelector('[data-act="none"]').onclick = function () { fzSel.clear(); renderFzFilters(); renderFz(); };
+    }
+
+    renderFzFilters(); renderFz();
   }
 
   // ---------- tap-to-plan ----------
@@ -175,6 +238,7 @@
   // ---------- wire up ----------
   function init() {
     if ($("pubFilters")) { renderFiltersMulti(); renderPubsMulti(); }
+    setupFanzones();
 
     var pt = $("pTown");
     if (pt) pt.addEventListener("change", updateWeather);
