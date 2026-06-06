@@ -8,6 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="matchcentre.css">
+<meta name="theme-color" content="#08130f">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pub Kickoff">
 <style>
   :root{
     --night:#08130f;
@@ -136,7 +144,7 @@
   .pub .rate{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
   .pub .stars{color:var(--gold);font-weight:800}
   .pub .desc{font-size:13.5px;color:var(--ink);opacity:.86}
-  .pub .links{margin-top:auto;display:flex;gap:10px;padding-top:6px}
+  .pub .links{margin-top:auto;display:flex;gap:10px;padding-top:6px;flex-wrap:wrap}
   .pub .links a{font-size:13px;font-weight:700;color:var(--lime);text-decoration:none;border-bottom:1px solid transparent}
   .pub .links a:hover{border-color:var(--lime)}
 
@@ -687,5 +695,6 @@ loadPlans();
 setInterval(loadPlans, 20000); // keep the board roughly in sync
 </script>
 <script src="matchcentre.js"></script>
+<script src="extras.js"></script>
 </body>
 </html>
