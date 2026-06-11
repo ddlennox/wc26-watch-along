@@ -253,6 +253,17 @@
     go.disabled = false; go.textContent = "Place bet";
   }
 
+  // host city for the games we know (the free feed doesn't carry venues)
+  function cityFor(home, away) {
+    var h = (home || "").toLowerCase(), a = (away || "").toLowerCase();
+    function has(x) { return h.indexOf(x) >= 0 || a.indexOf(x) >= 0; }
+    if (has("england") && has("croatia")) return "Dallas";
+    if (has("england") && has("ghana")) return "Boston";
+    if (has("england") && has("panama")) return "New York / NJ";
+    if (has("mexico") && has("south africa")) return "Mexico City";
+    return null;
+  }
+
   // ---- rendering ----
   function matchRow(m, opts) {
     opts = opts || {};
@@ -262,6 +273,8 @@
     if (done && m.hScore != null) tags += '<span class="tag">FT</span>';
     if (m.group) tags += '<span class="tag">' + esc(m.group.replace("GROUP_", "Grp ")) + "</span>";
     if (m.channel) tags += '<span class="tag ch">' + esc(m.channel) + "</span>";
+    var city = m.venue || cityFor(m.home, m.away);
+    if (city) tags += '<span class="tag">📍 ' + esc(city) + "</span>";
     if (!live && !done) tags += '<span class="tag">' + esc(fmtTime(m.utc)) + "</span>";
 
     var html =

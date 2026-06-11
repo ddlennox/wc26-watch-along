@@ -80,6 +80,15 @@
     if (typeof FANZONES === "undefined") return;
     var fzList = $("fzList");
     if (!fzList) return;
+
+    // Extra Malta (St Julian's / Spinola) fan zones, added here so index.html stays untouched
+    var EXTRA = [
+      { town: "Malta", name: "Spinola Bay Fan Zone", addr: "Spinola Bay, St Julian's, Malta", capacity: "big outdoor screen", tickets: "free", website: "https://spinolacafe.com/live-sports/", desc: "Malta's go-to World Cup spot — a big outdoor screen right on Spinola Bay in the heart of St Julian's, free and buzzing for the big games. (Setup based on previous tournaments; worth a quick check on the 2026 details nearer the time.)", times: "all the big matches" },
+      { town: "Malta", name: "Spinola Cafe & Lounge", addr: "Spinola Bay, St Julian's, Malta", capacity: "indoor + terrace", tickets: "free entry", website: "https://spinolacafe.com/live-sports/", desc: "Big LED screens inside and out overlooking Spinola Bay — food, drinks and every big match, right on the fan-zone strip." },
+      { town: "Malta", name: "Tigullio Fan Zone", addr: "Tigullio Car Park, St Julian's, Malta", capacity: "large outdoor screen", tickets: "free", website: "https://www.independent.com.mt/articles/2010-06-04/others/maltas-largest-outdoor-screen-in-st-julians-during-the-world-cup-275490", desc: "Historically home to Malta's largest outdoor screen during World Cups — a full-HD giant screen and a proper St Julian's crowd. Worth checking it's back for 2026." }
+    ];
+    EXTRA.forEach(function (z) { if (!FANZONES.some(function (x) { return x.name === z.name; })) FANZONES.push(z); });
+
     var fzTowns = [];
     FANZONES.forEach(function (z) { if (fzTowns.indexOf(z.town) < 0) fzTowns.push(z.town); });
     var fzSel = new Set(fzTowns);
