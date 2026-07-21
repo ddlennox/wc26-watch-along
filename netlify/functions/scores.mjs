@@ -1,15 +1,15 @@
 import { getStore } from "@netlify/blobs";
 
-// Live + upcoming + recent World Cup matches from football-data.org.
+// Live + upcoming + recent Premier League matches from football-data.org.
 // Cached in Netlify Blobs for ~45s so a crowd of friends polling at once
 // doesn't blow the free 10-calls/minute limit. Also writes a compact
 // results cache that the betting function reads to auto-settle bets.
 
 const TOKEN = process.env.FOOTBALL_DATA_TOKEN || "";
-const API = "https://api.football-data.org/v4/competitions/WC/matches";
+const API = "https://api.football-data.org/v4/competitions/PL/matches";
 const CACHE_MS = 45 * 1000;
 
-const store = () => getStore({ name: "wc-scores", consistency: "strong" });
+const store = () => getStore({ name: "pl-scores", consistency: "strong" });
 
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -17,16 +17,16 @@ const json = (data, status = 200) =>
     headers: { "content-type": "application/json", "cache-control": "no-store" },
   });
 
-// UK broadcaster for the games we know about. The API doesn't carry UK TV,
-// so we tag the ones that matter to the group by the teams involved.
-function channelFor(home, away) {
-  const t = (s) => (s || "").toLowerCase();
-  const pair = [t(home), t(away)];
-  const has = (name) => pair.some((x) => x.includes(name));
-  if (has("england") && has("croatia")) return "ITV";
-  if (has("england") && has("ghana")) return "BBC";
-  if (has("england") && has("panama")) return "ITV";
-  if (has("mexico") && has("south africa")) return "BBC"; // opener
+// The clubs the group follows — pinned to the top of the feed.
+const FOLLOWED = ["man united", "manchester united", "chelsea", "tottenham", "crystal palace"];
+const isFollowed = (m) => {
+  const s = ((m.home || "") + " " + (m.away || "")).toLowerCase();
+  return FOLLOWED.some((c) => s.includes(c));
+};
+
+// The free feed doesn't carry UK TV, and Prem rights split across Sky/TNT with
+// the 3pm Saturday blackout, so we don't guess a broadcaster per game here.
+function channelFor() {
   return null;
 }
 
@@ -61,7 +61,7 @@ function normalise(matches) {
       utc: m.utcDate,
       status: m.status,
       stage: m.stage,
-      group: m.group || null,
+      md: m.matchday || null,
       home,
       away,
       homeTla: m.homeTeam?.tla || "",
@@ -96,15 +96,14 @@ function normalise(matches) {
   recent.sort((a, b) => new Date(b.utc) - new Date(a.utc));
   live.sort((a, b) => new Date(a.utc) - new Date(b.utc));
 
-  // England's upcoming games, pinned regardless of the general 14-game window
-  const isEngland = (m) => /england/i.test(m.home) || /england/i.test(m.away);
-  const england = upcoming.filter(isEngland).slice(0, 6);
+  // Our clubs' upcoming games, pinned regardless of the general window.
+  const featured = upcoming.filter(isFollowed).slice(0, 8);
 
   return {
     live,
     upcoming: upcoming.slice(0, 14),
     recent: recent.slice(0, 10),
-    england,
+    featured,
     results,
   };
 }
@@ -128,7 +127,6 @@ export default async () => {
   try {
     const res = await fetch(API, { headers: { "X-Auth-Token": TOKEN } });
     if (!res.ok) {
-      // On an upstream error, serve stale cache if we have any.
       const stale = await s.get("feed", { type: "json" }).catch(() => null);
       if (stale) return json(stale.body);
       return json(
@@ -144,9 +142,8 @@ export default async () => {
       live: n.live,
       upcoming: n.upcoming,
       recent: n.recent,
-      england: n.england,
+      featured: n.featured,
     };
-    // Cache the response and the compact results map (for bet settlement).
     await s.setJSON("feed", { ts: Date.now(), body });
     await s.setJSON("results", { ts: Date.now(), results: n.results });
     return json(body);

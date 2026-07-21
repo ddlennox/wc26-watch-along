@@ -1,7 +1,7 @@
 /* Pub Kickoff service worker — makes the site installable & usable offline.
    Network-first for the page shell (so updates show), and it NEVER touches
    /api/ requests so live scores, plans and bets always hit the network. */
-const CACHE = "pk-v2";
+const CACHE = "pk-v3";
 const SHELL = [
   "/", "/index.html", "/matchcentre.css", "/matchcentre.js", "/extras.js",
   "/icon.svg", "/icon-192.png", "/icon-512.png", "/manifest.webmanifest"

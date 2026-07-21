@@ -1,7 +1,7 @@
 {
-  "name": "Pub Kickoff — World Cup '26",
+  "name": "Pub Kickoff — Premier League 2026/27",
   "short_name": "Pub Kickoff",
-  "description": "Where the lads are watching the 2026 World Cup — fixtures, live scores, pubs and fun-coin bets.",
+  "description": "Where the lads are watching the Premier League — fixtures, live scores, pubs and fun-coin bets.",
   "start_url": "/?app=1",
   "scope": "/",
   "display": "standalone",
