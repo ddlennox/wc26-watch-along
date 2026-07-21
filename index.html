@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Lads' World Cup '26 — Where We're Watching</title>
+<title>Pub Kickoff — Where the Lads Watch the Prem</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -219,9 +219,9 @@
 <header class="hero">
   <div class="pitch-lines"><div class="circle"></div><div class="circle sm"></div></div>
   <div class="wrap">
-    <span class="kicker"><span class="dot"></span> World Cup 2026 · USA · Canada · Mexico</span>
+    <span class="kicker"><span class="dot"></span> Premier League 2026/27 · Aug–May</span>
     <h1>Where are <em>we</em> watching the football?</h1>
-    <p class="sub">The group plan for Barnstaple, Brighton, Crawley, London, Hale &amp; the Malta crew. <b>Every game is free-to-air on BBC &amp; ITV</b> — so pick a pub, post where you'll be, and see who can join.</p>
+    <p class="sub">The group plan for Barnstaple, Brighton, Crawley, London, Hale &amp; the Malta crew. <b>The Prem's on Sky Sports &amp; TNT — and 3pm Saturday games aren't on UK telly at all</b>, so the right pub matters. Pick one, post where you'll be, and see who can pile in.</p>
 
     <div class="count" id="countdown"></div>
 
@@ -238,19 +238,18 @@
   <a href="#odds">The Odds</a>
   <a href="#pubs">The Pubs</a>
   <a href="#board">Who's Watching Where</a>
-  <a href="#fanzones">Fan Zones</a>
 </div></nav>
 
 <section id="fixtures">
   <div class="wrap">
-    <div class="sec-head"><h2>England's Group L</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">Tuchel's lot are with Croatia, Ghana &amp; Panama — all three group games are evening kick-offs back home. Channels confirmed by BBC &amp; ITV.</p>
+    <div class="sec-head"><h2>Our Clubs' Opening Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace (and Charlton — Championship this season, so not on the Prem feed). Here's who they've drawn on the opening weekend. TV: the 12:30 Sat game is on TNT, teatime &amp; Monday nights are Sky, and 3pm Saturdays aren't shown on UK telly.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
-      <div class="kd"><div class="t">Opening Match</div><div class="d">Thu 11 Jun · Mexico v South Africa · 8pm BST</div></div>
-      <div class="kd"><div class="t">Group Stage</div><div class="d">11 Jun – 27 Jun · 12 groups of 4</div></div>
-      <div class="kd"><div class="t">The Final</div><div class="d">Sun 19 Jul · MetLife Stadium, New York/NJ</div></div>
+      <div class="kd"><div class="t">Opening Night</div><div class="d">Fri 21 Aug · Arsenal v Coventry · 8pm BST</div></div>
+      <div class="kd"><div class="t">First Weekend</div><div class="d">21–24 Aug · matchweek 1</div></div>
+      <div class="kd"><div class="t">Final Day</div><div class="d">Sun 30 May 2027 · all kick off together</div></div>
     </div>
   </div>
 </section>
@@ -258,9 +257,9 @@
 <section id="odds">
   <div class="wrap">
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
-    <p class="odds-intro">Who's lifting it in New Jersey? Outright winner prices below — England sit third behind Spain and France. The win/draw/win odds for each England game are on the fixture cards above.</p>
+    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal go in favourites to go back-to-back. United are the shortest of our lot, Spurs are a long shot, and Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
-    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in early June and move all the time — check a bookie for live odds before anything's official. * England v Ghana is indicative until the books firm up. 18+ · when the fun stops, stop · BeGambleAware.org</p>
+    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in July and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
 </section>
 
@@ -269,14 +268,6 @@
     <div class="sec-head"><h2>The Pubs</h2><span class="tag">screens, late licences &amp; a decent pint</span><span class="bar"></span></div>
     <div class="filters" id="pubFilters"></div>
     <div class="pubs" id="pubList"></div>
-  </div>
-</section>
-
-<section id="fanzones">
-  <div class="wrap">
-    <div class="sec-head"><h2>Fan Zones</h2><span class="tag">big screens · street food · the full atmosphere</span><span class="bar"></span></div>
-    <p class="fz-note">Proper fan zones confirmed for London and Brighton — ticketed events with massive outdoor screens, stadium sound and DJs. Prices and details correct as of early June; check links for the latest.</p>
-    <div class="fz-grid" id="fzList"></div>
   </div>
 </section>
 
@@ -289,7 +280,7 @@
       <div class="row">
         <div class="field">
           <label for="pMatch">Which game</label>
-          <input id="pMatch" list="matchOptions" placeholder="e.g. England v Croatia" maxlength="50">
+          <input id="pMatch" list="matchOptions" placeholder="e.g. Chelsea v Fulham" maxlength="50">
           <datalist id="matchOptions"></datalist>
         </div>
         <div class="field">
@@ -323,7 +314,7 @@
 </section>
 
 <footer class="wrap">
-  Built for the lads · World Cup '26 · <b>Up the Three Lions</b> 🦁 — and good luck to the Malta contingent watching at +1hr
+  Built for the lads · Premier League 2026/27 · <b>Up the Prem</b> ⚽ — and good luck to the Malta contingent watching at +1hr
 </footer>
 
 <script>
@@ -362,20 +353,22 @@ const Me = {
 };
 
 // ---------- DATA ----------
-const ENGLAND = [
-  {day:"WED", date:"17", mon:"JUN", match:"England v Croatia", venue:"Dallas", time:"9:00pm BST", ch:"ITV",
-   odds:[{lab:"England",p:"8/11"},{lab:"Draw",p:"27/10"},{lab:"Croatia",p:"15/4"}]},
-  {day:"TUE", date:"23", mon:"JUN", match:"England v Ghana",   venue:"Boston", time:"9:00pm BST", ch:"BBC",
-   odds:[{lab:"England",p:"1/3"},{lab:"Draw",p:"7/2"},{lab:"Ghana",p:"7/1"}], indicative:true},
-  {day:"SAT", date:"27", mon:"JUN", match:"Panama v England",  venue:"New York/NJ", time:"10:00pm BST", ch:"ITV",
-   odds:[{lab:"Panama",p:"12/1"},{lab:"Draw",p:"11/2"},{lab:"England",p:"1/4"}]},
+const FIXTURES = [
+  {day:"SAT", date:"22", mon:"AUG", match:"Hull City v Man Utd", venue:"MKM Stadium", time:"12:30pm BST", ch:"TNT",
+   odds:[{lab:"Hull",p:"9/2"},{lab:"Draw",p:"10/3"},{lab:"Man Utd",p:"4/6"}]},
+  {day:"SAT", date:"22", mon:"AUG", match:"Everton v Crystal Palace", venue:"Hill Dickinson Stadium", time:"3:00pm BST", ch:"Not on UK TV",
+   odds:[{lab:"Everton",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Palace",p:"11/5"}]},
+  {day:"SAT", date:"22", mon:"AUG", match:"Tottenham v Brentford", venue:"Spurs Stadium", time:"5:30pm BST", ch:"Sky",
+   odds:[{lab:"Spurs",p:"8/13"},{lab:"Draw",p:"3/1"},{lab:"Brentford",p:"9/2"}]},
+  {day:"MON", date:"24", mon:"AUG", match:"Chelsea v Fulham", venue:"Stamford Bridge", time:"8:00pm BST", ch:"Sky",
+   odds:[{lab:"Chelsea",p:"4/9"},{lab:"Draw",p:"18/5"},{lab:"Fulham",p:"6/1"}]},
 ];
 
-// Outright winner — latest available prices (early June, best of the major UK books). Prices move.
+// Outright winner — latest available prices (July, best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Spain",p:"19/4"},{team:"France",p:"5/1"},{team:"England",p:"13/2"},
-  {team:"Brazil",p:"17/2"},{team:"Argentina",p:"9/1"},{team:"Portugal",p:"10/1"},
-  {team:"Germany",p:"14/1"},{team:"Netherlands",p:"22/1"},{team:"Norway",p:"28/1"},
+  {team:"Arsenal",p:"6/4"},{team:"Man City",p:"10/3"},{team:"Liverpool",p:"11/2"},
+  {team:"Man Utd",p:"6/1"},{team:"Chelsea",p:"10/1"},{team:"Newcastle",p:"16/1"},
+  {team:"Aston Villa",p:"25/1"},{team:"Tottenham",p:"28/1"},
 ];
 
 const PUBS = [
@@ -387,7 +380,7 @@ const PUBS = [
   {town:"Barnstaple", name:"The Rising Sun", addr:"29 Newport Rd, EX32 9BQ", rating:4.2, count:89, desc:"Multi-screen sports pub with pool, skittles and darts — a proper local that delivers on big match nights."},
   {town:"Barnstaple", name:"The Strand Social", addr:"The Strand, EX31 1EU", rating:4.4, count:31, desc:"Barnstaple&#39;s newest pub — stylish interior, craft beer and big screens for sport right in the town centre."},
   {town:"Barnstaple", name:"Green Man Bar &amp; Bistro", addr:"28 Pilton St, EX31 1PJ", rating:4.3, count:134, desc:"Sky Sports pub in Pilton with great food and local real ales — relaxed vibe and easy to get a seat."},
-  {town:"Barnstaple", name:"The Panniers (JD Wetherspoon)", addr:"33 Boutport St, EX31 1RX", rating:3.9, count:2140, desc:"Wetherspoon on the high street showing all World Cup games on screen — and the cheapest pint in town."},
+  {town:"Barnstaple", name:"The Panniers (JD Wetherspoon)", addr:"33 Boutport St, EX31 1RX", rating:3.9, count:2140, desc:"Wetherspoon on the high street showing all the football on screen — and the cheapest pint in town."},
   {town:"Barnstaple", name:"The Reform Inn", addr:"2 Pilton Causeway, EX31 1PD", rating:4.5, count:412, desc:"CAMRA award-winning gem in Pilton with brilliant ales. Call ahead to check if they&#39;re showing the match."},
   {town:"Barnstaple", name:"Royal &amp; Fortescue Hotel", addr:"2 Boutport St, EX31 1HG", rating:4.2, count:632, desc:"Grand old coaching inn right in the centre — bar and lounge areas regularly show sport on big screens."},
   // Brighton
@@ -398,7 +391,7 @@ const PUBS = [
   {town:"Brighton", name:"North Laine Brewhouse", addr:"27 Sydney St, BN1 4EP", rating:4.3, count:890, desc:"Craft ales and pub grub in the heart of North Laine — a reliable go-to for Champions League and major tournaments."},
   {town:"Brighton", name:"The Palmeira", addr:"70–71 Waterloo St, Hove, BN3 1AJ", rating:4.3, count:567, desc:"Six screens including one outside in the garden — can show three live games at once, worth the short stroll to Hove."},
   {town:"Brighton", name:"The Pump House", addr:"46 Market St, BN1 1HH", rating:4.4, count:1240, desc:"Central Nicholson&#39;s pub with several screens just off the Lanes — solid choice before or after a wander."},
-  {town:"Brighton", name:"The Bright Helm (JD Wetherspoon)", addr:"Churchill Square, BN1 2EF", rating:3.9, count:1870, desc:"Wetherspoon near the shopping centre — all World Cup games on and the most affordable round in the city."},
+  {town:"Brighton", name:"The Bright Helm (JD Wetherspoon)", addr:"Churchill Square, BN1 2EF", rating:3.9, count:1870, desc:"Wetherspoon near the shopping centre — all the football on and the most affordable round in the city."},
   {town:"Brighton", name:"Grosvenor Casino Pier Nine", addr:"Brighton Seafront, BN2 1TB", rating:4.2, count:430, desc:"Brighton&#39;s largest indoor screen in a casino setting — great for late kick-offs when everywhere else has closed."},
   {town:"Brighton", name:"Crossbar", addr:"Ship St, BN1 1AF", rating:4.6, count:89, desc:"Brand new in 2026 — eight screens across two floors, purpose-built for watching sport. One of the best new additions in the city."},
   // Crawley
@@ -408,7 +401,7 @@ const PUBS = [
   {town:"Crawley", name:"The White Hart", addr:"Northgate, RH10 1ES", rating:4.2, count:387, desc:"The only traditional pub in the original town centre — been there since before the new town existed."},
   {town:"Crawley", name:"Brewery Shades", addr:"High St, RH10 1BQ", rating:4.2, count:512, desc:"Historic high street pub dating back to the 14th century — great ales and a proper atmosphere for the big match."},
   {town:"Crawley", name:"The Railway", addr:"Station Rd, RH10 1HT", rating:4.3, count:290, desc:"Proper pub by the station showing all major sports on multiple screens — easy for anyone coming in by train."},
-  {town:"Crawley", name:"The George (JD Wetherspoon)", addr:"7–9 High St, RH10 1BQ", rating:3.9, count:1560, desc:"Wetherspoon on the high street — all World Cup games on and the cheapest drink in Crawley."},
+  {town:"Crawley", name:"The George (JD Wetherspoon)", addr:"7–9 High St, RH10 1BQ", rating:3.9, count:1560, desc:"Wetherspoon on the high street — all the football on and the cheapest drink in Crawley."},
   {town:"Crawley", name:"The Apple Tree", addr:"Ifield Rd, RH11 0BS", rating:4.0, count:213, desc:"Family-friendly pub in west Crawley with sport on screen — a decent local for those away from the centre."},
   {town:"Crawley", name:"Maidenbower Sports &amp; Social", addr:"Harvest Ride, RH10 7PJ", rating:3.9, count:67, desc:"Community sports club open to guests — 7 TVs, pool tables and a large function room for the big occasions."},
   {town:"Crawley", name:"Goffs Park Social Club", addr:"Goffs Park Rd, RH11 8AX", rating:4.0, count:134, desc:"Members&#39; club near Goffs Park open to guests — relaxed football atmosphere with sport on multiple screens."},
@@ -417,7 +410,7 @@ const PUBS = [
   {town:"London", name:"Kings Sports Bar (Empire Casino)", addr:"5–6 Leicester Square, WC2H 7NA", rating:4.5, count:1057, desc:"Open 24 hours in Leicester Square — sorted for those very late kick-offs."},
   {town:"London", name:"The Three Lanterns", addr:"5 Lisle St, WC2H 7BG", rating:4.5, count:663, desc:"Big, accessible screens off Leicester Square with a relaxed local feel."},
   {town:"London", name:"O&#39;Neill&#39;s Wardour Street", addr:"33–37 Wardour St, W1D 6PU", rating:4.4, count:10469, desc:"Soho institution, open till the small hours — handles a big match-night crowd."},
-  {town:"London", name:"BLOODsports", addr:"27–29 Endell St, WC2H 9BA", rating:4.6, count:420, desc:"Sport-first bar in Covent Garden showing football from across the globe — reliably packed for England games."},
+  {town:"London", name:"BLOODsports", addr:"27–29 Endell St, WC2H 9BA", rating:4.6, count:420, desc:"Sport-first bar in Covent Garden showing football from across the globe — reliably packed for the big games."},
   {town:"London", name:"Porterhouse", addr:"21–22 Maiden Ln, WC2E 7NA", rating:4.4, count:3120, desc:"Multi-floor Irish bar with screens everywhere and its own house beers — a WC2 institution."},
   {town:"London", name:"The Greenwood", addr:"170 Victoria St, SW1E 5LB", rating:4.1, count:890, desc:"Vast pub near Victoria with 20 big screens — one of the safest bets in London for finding a spot."},
   {town:"London", name:"Flatiron Square", addr:"45 Southwark St, SE1 9HP", rating:4.5, count:567, desc:"16 screens inside and outside this archways complex — a brilliant outdoor setting if the weather&#39;s good."},
@@ -432,10 +425,10 @@ const PUBS = [
   {town:"Hale", name:"The Unicorn", addr:"1–7 Ashley Rd, WA14 2DP", rating:4.3, count:445, desc:"Classic pub on Ashley Road with multiple screens and a late bar on weekends."},
   {town:"Hale", name:"Libero Sports Bar", addr:"Kings Court, Altrincham, WA14 4DB", rating:4.6, count:189, desc:"Altrincham&#39;s dedicated independent sports bar in Kings Court — purpose-built for watching football."},
   {town:"Hale", name:"The Old Market Tavern", addr:"Old Market Pl, WA14 4DE", rating:4.1, count:178, desc:"Traditional Altrincham boozer steps from the market — gets lively for the big games."},
-  {town:"Hale", name:"Cresta Court Hotel Bar", addr:"Church St, WA14 4DP", rating:4.0, count:312, desc:"Hotel bar with Sky Sports — a reliable choice if the town pubs are rammed on a big England night."},
-  {town:"Hale", name:"The Victoria (JD Wetherspoon)", addr:"27–31 George St, WA14 1RJ", rating:3.8, count:1890, desc:"All World Cup games on screen and the cheapest round in Altrincham — ideal pre-match or overflow option."},
+  {town:"Hale", name:"Cresta Court Hotel Bar", addr:"Church St, WA14 4DP", rating:4.0, count:312, desc:"Hotel bar with Sky Sports — a reliable choice if the town pubs are rammed on a big match night."},
+  {town:"Hale", name:"The Victoria (JD Wetherspoon)", addr:"27–31 George St, WA14 1RJ", rating:3.8, count:1890, desc:"All the football on screen and the cheapest round in Altrincham — ideal pre-match or overflow option."},
   // Malta
-  {town:"Malta", name:"Hugo&#39;s Pub", addr:"St Rita Steps, Paceville, STJ 3340", rating:4.7, count:2890, desc:"Top of every Malta sports bar list — tons of TVs, great food, buzzing Paceville location. Get there early for England games."},
+  {town:"Malta", name:"Hugo&#39;s Pub", addr:"St Rita Steps, Paceville, STJ 3340", rating:4.7, count:2890, desc:"Top of every Malta sports bar list — tons of TVs, great food, buzzing Paceville location. Get there early for the big games."},
   {town:"Malta", name:"The Dubliner Irish Pub", addr:"George Borg Olivier St, St Julian&#39;s", rating:4.6, count:1234, desc:"Overlooks St Julian&#39;s Bay with Sky Sports and TNT — Guinness €4.75, Stella under €4. A brilliant spot."},
   {town:"Malta", name:"Surfside", addr:"Tower Rd, Sliema", rating:4.5, count:678, desc:"Rooftop terrace with sea views plus a dedicated sports bar floor — classy spot for a big game."},
   {town:"Malta", name:"Salisbury Arms", addr:"Triq Il-Kbira, Sliema", rating:4.6, count:1574, desc:"Long-running English pub in Sliema, open very late — classic spot for the game."},
@@ -445,18 +438,6 @@ const PUBS = [
   {town:"Malta", name:"Rapid Sports Lounge", addr:"Tourist St, St Paul&#39;s Bay", rating:4.5, count:890, desc:"Four huge screens across two floors in St Paul&#39;s — Stella, Heineken, Guinness and local Cisk on tap."},
   {town:"Malta", name:"Fat Harry&#39;s Pub", addr:"38 St Zachary St, Valletta", rating:4.4, count:567, desc:"Gastro pub in Valletta with solid TV coverage — more relaxed than Paceville, great for a mixed group."},
   {town:"Malta", name:"Queen Victoria", addr:"20 South St, Valletta, VLT 1103", rating:4.3, count:445, desc:"Traditional English pub in Valletta showing live English football — book ahead for a table with a good screen view."},
-];
-
-const FANZONES = [
-  // London
-  {town:"London", name:"The Garden Vauxhall", addr:"6 South Lambeth Place, SW8 1SP", capacity:"2,000+", tickets:"from £10", website:"https://www.thegardenvauxhall.co.uk/", desc:"One of London&#39;s largest outdoor beer gardens transformed into a full fan zone — massive LED screens, stadium sound, street food vendors, DJs, and covered areas for every match from 5pm.", times:"5pm–midnight · every match · Jun 11–Jul 19"},
-  {town:"London", name:"Outernet London (Kick Off Club)", addr:"Denmark St, WC2H 0LA", capacity:"1,000+", tickets:"ticketed", website:"https://outernet.london/", desc:"London&#39;s largest indoor screen with full surround sound in the heart of the West End — immersive atmosphere, multiple bars, and live hosts for every England game."},
-  {town:"London", name:"Electric Brixton (Kick Off Club)", addr:"1 Town Hall Parade, Brixton, SW2 1RJ", capacity:"1,500", tickets:"ticketed", website:"https://electricbrixton.uk.com/", desc:"South London&#39;s iconic venue turned fan zone — club lighting, DJs, a Britpop-led soundtrack and a huge screen. One of the most atmospheric watches in the city."},
-  {town:"London", name:"Brick Lane Fan Zone", addr:"Ely&#39;s Yard, Hanbury St, E1 6QR", capacity:"600", tickets:"free/ticketed", website:"https://www.elysyard.co.uk/", desc:"Indoor and outdoor giant LED screen in the heart of Brick Lane — Signature Brew beers, Sleazy Pizza, DJs, live music and giveaways. Relaxed East London vibe."},
-  {town:"London", name:"Dagenham &amp; Redbridge FC (FanPark)", addr:"Victoria Rd, Dagenham, RM10 7XL", capacity:"2,000", tickets:"ticketed", website:"https://www.fanpark.co.uk/", desc:"FANPARK&#39;s full festival-style experience at the Daggers&#39; ground — big screens, craft beer, street food, live hosts and giveaways. One of the best-value fan zones in London."},
-  // Brighton
-  {town:"Brighton", name:"Central Park on Brighton Beach", addr:"Madeira Dr, Brighton, BN2 1EN", capacity:"5,000", tickets:"from £4.50", website:"https://www.brightonandhovenews.org/2026/03/31/central-park-on-brighton-beach-launches-summer-of-music-and-world-cup-entertainment/", desc:"The big one for Brighton — 50-metre screens with world-class sound, pyrotechnic goal celebrations, a football legend at every England game, DJs, food and drink. All England group games plus the final. On the seafront.", times:"Jun 11–Jul 19 · all England matches + final"},
-  {town:"Brighton", name:"The Terrace at Amex Stadium", addr:"American Express Stadium, BN1 9BL", capacity:"3,000", tickets:"check website", website:"https://www.brightonandhovealbion.com/", desc:"Brighton &amp; Hove Albion&#39;s purpose-built fan zone at the Amex — the largest in the Premier League with 1,000 indoors and 2,000 outside. Proper stadium atmosphere without the flights."},
 ];
 
 const TOWNS = ["Barnstaple","Brighton","Crawley","London","Hale","Malta"];
@@ -478,7 +459,7 @@ meInput.addEventListener("input", (e)=>{
 });
 
 // ---------- COUNTDOWN ----------
-const KICKOFF = new Date("2026-06-11T19:00:00Z"); // 8pm BST opening match
+const KICKOFF = new Date("2026-08-21T19:00:00Z"); // 8pm BST opening night
 function renderCountdown(){
   const el = document.getElementById("countdown");
   const now = new Date();
@@ -488,21 +469,21 @@ function renderCountdown(){
   const m = Math.floor(diff/60000); diff-=m*60000;
   const s = Math.floor(diff/1000);
   if(KICKOFF - now <= 0){
-    el.innerHTML = '<div class="what" style="color:var(--lime);font-weight:700">⚽ The World Cup is underway — get to the pub!</div>';
+    el.innerHTML = '<div class="what" style="color:var(--lime);font-weight:700">⚽ The Prem is back — get to the pub!</div>';
     return;
   }
   const cell=(n,l)=>`<div class="cell"><div class="num">${String(n).padStart(2,'0')}</div><div class="lab">${l}</div></div>`;
-  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Thu 11 Jun</div>';
+  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Fri 21 Aug</div>';
 }
 
 // ---------- FIXTURES ----------
 function renderFixtures(){
-  document.getElementById("engFixtures").innerHTML = ENGLAND.map(f=>`
+  document.getElementById("engFixtures").innerHTML = FIXTURES.map(f=>`
     <div class="eng">
       <div class="date">${f.day}<span>${f.date}</span>${f.mon}</div>
       <div>
         <div class="match">${f.match}</div>
-        <div class="meta"><b>${f.time}</b> · ${f.venue}, USA</div>
+        <div class="meta"><b>${f.time}</b> · ${f.venue}</div>
         <div class="odds1x2">${f.odds.map(o=>`<span class="o"><i>${o.lab}</i> ${o.p}</span>`).join("")}${f.indicative?'<span class="ind">indicative *</span>':''}</div>
       </div>
       <div class="ch">${f.ch}</div>
@@ -515,10 +496,10 @@ function renderOutright(){
   el.innerHTML = OUTRIGHT.map((t,i)=>{
     const dec = (()=>{const[a,b]=t.p.split("/");return parseInt(a)/parseInt(b)+1;})();
     const w = Math.max(8, Math.min(100, 540/dec)); // longer bar = shorter price = bigger chance
-    const eng = t.team==="England";
+    const eng = ["Man Utd","Chelsea","Tottenham"].includes(t.team);
     return `<div class="odds-row ${eng?'eng-row':''}">
       <span class="rank">${i+1}</span>
-      <span class="team">${t.team}${eng?' 🦁':''}</span>
+      <span class="team">${t.team}${eng?' ⭐':''}</span>
       <span class="track"><span class="fill" style="width:${Math.min(100,w)}%"></span></span>
       <span class="price">${t.p}</span>
     </div>`;
@@ -552,7 +533,7 @@ function renderPubs(){
 // ---------- WATCH BOARD (shared storage) ----------
 function populateFormOptions(){
   const ml = document.getElementById("matchOptions");
-  const opts = [...ENGLAND.map(f=>f.match),"Opening match","Final"];
+  const opts = [...FIXTURES.map(f=>f.match),"Another game"];
   ml.innerHTML = opts.map(o=>`<option value="${o}">`).join("");
   const ts = document.getElementById("pTown");
   ts.innerHTML = TOWNS.map(t=>`<option value="${t}">${t}</option>`).join("");
@@ -663,32 +644,10 @@ async function deletePlan(id){
 document.getElementById("addPlan").onclick=addPlan;
 
 // ---------- INIT ----------
-function renderFanzones(){
-  const el = document.getElementById("fzList"); if(!el) return;
-  el.innerHTML = FANZONES.map(z=>`
-    <div class="fz">
-      <span class="fz-town">${esc(z.town)}</span>
-      <span class="fz-badge">⚽ Fan Zone</span>
-      <h3>${esc(z.name)}</h3>
-      <div class="fz-addr">${esc(z.addr)}</div>
-      <div class="fz-desc">${z.desc}</div>
-      <div class="fz-detail">
-        ${z.capacity?`<span>👥 <b>${esc(z.capacity)}</b></span>`:""}
-        ${z.tickets?`<span>🎟 <b>${esc(z.tickets)}</b></span>`:""}
-        ${z.times?`<span>🕔 ${esc(z.times)}</span>`:""}
-      </div>
-      <div class="fz-links">
-        <a href="${esc(z.website)}" target="_blank" rel="noopener">Website &amp; tickets ↗</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(z.name+' '+z.addr)}" target="_blank" rel="noopener">Map ↗</a>
-      </div>
-    </div>`).join("");
-}
-
 renderCountdown(); setInterval(renderCountdown,1000);
 renderFixtures();
 renderOutright();
 renderFilters(); renderPubs();
-renderFanzones();
 populateFormOptions();
 loadMe();
 loadPlans();
