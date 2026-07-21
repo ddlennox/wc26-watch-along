@@ -17,47 +17,29 @@
 
   // ---- fixtures shown before the live feed is switched on ----
   var FALLBACK = [
-    { id: "fx-open", utc: "2026-06-11T19:00:00Z", home: "Mexico", away: "South Africa", channel: "BBC" },
-    { id: "fx-cro", utc: "2026-06-17T20:00:00Z", home: "England", away: "Croatia", channel: "ITV" },
-    { id: "fx-gha", utc: "2026-06-23T20:00:00Z", home: "England", away: "Ghana", channel: "BBC" },
-    { id: "fx-pan", utc: "2026-06-27T21:00:00Z", home: "Panama", away: "England", channel: "ITV" }
+    { id: "fx-mun", utc: "2026-08-22T11:30:00Z", home: "Hull City", away: "Man United", channel: "TNT" },
+    { id: "fx-cry", utc: "2026-08-22T14:00:00Z", home: "Everton", away: "Crystal Palace", channel: null },
+    { id: "fx-tot", utc: "2026-08-22T16:30:00Z", home: "Tottenham", away: "Brentford", channel: "Sky" },
+    { id: "fx-che", utc: "2026-08-24T19:00:00Z", home: "Chelsea", away: "Fulham", channel: "Sky" }
   ];
 
-  // ---- rough team strength for auto-generated fun odds (0-100) ----
+  // ---- rough club strength for auto-generated fun odds (0-100) ----
   var RATING = {
-    spain: 92, france: 91, argentina: 90, brazil: 88, england: 88, germany: 85,
-    portugal: 86, netherlands: 84, belgium: 83, croatia: 82, italy: 84, uruguay: 82,
-    colombia: 80, morocco: 80, norway: 80, switzerland: 78, denmark: 78, japan: 78,
-    senegal: 78, usa: 78, austria: 78, turkey: 78, serbia: 77, mexico: 77, nigeria: 77,
-    ecuador: 76, ukraine: 76, "korea republic": 76, "south korea": 76, "ivory coast": 76,
-    egypt: 76, algeria: 76, ghana: 75, poland: 75, sweden: 75, canada: 75, australia: 74,
-    iran: 74, "saudi arabia": 72, qatar: 70, panama: 70, "south africa": 71,
-    "cape verde": 70, uzbekistan: 70, jordan: 69, "new zealand": 68, curacao: 66, haiti: 66
+    arsenal: 90, "man city": 89, "manchester city": 89, liverpool: 89, chelsea: 85,
+    "man united": 82, "manchester united": 82, newcastle: 83, "aston villa": 82,
+    tottenham: 81, "spurs": 81, brighton: 79, "crystal palace": 79, bournemouth: 78,
+    "nottingham forest": 78, "nott'm forest": 78, nottingham: 78, brentford: 77,
+    fulham: 77, everton: 76, "west ham": 76, wolves: 73, "leeds united": 73, leeds: 73,
+    sunderland: 72, burnley: 71, "coventry city": 71, coventry: 71,
+    "ipswich town": 72, ipswich: 72, "hull city": 70, hull: 70
   };
   function ratingFor(name) {
     var k = (name || "").toLowerCase().trim();
     return RATING[k] != null ? RATING[k] : 72;
   }
 
-  // curated current Win/Draw/Win prices (decimal) for England's group games
-  var CURATED = {
-    croatia: { eng: 1.73, opp: 4.75, draw: 3.70 },
-    ghana: { eng: 1.33, opp: 8.0, draw: 4.50 },
-    panama: { eng: 1.25, opp: 13.0, draw: 6.50 }
-  };
-  function curatedOdds(home, away) {
-    var h = (home || "").toLowerCase(), a = (away || "").toLowerCase();
-    if (h.indexOf("england") < 0 && a.indexOf("england") < 0) return null;
-    var opps = ["croatia", "ghana", "panama"];
-    for (var i = 0; i < opps.length; i++) {
-      var o = opps[i];
-      if (h.indexOf(o) >= 0 || a.indexOf(o) >= 0) {
-        var c = CURATED[o], homeIsEng = h.indexOf("england") >= 0;
-        return { home: homeIsEng ? c.eng : c.opp, draw: c.draw, away: homeIsEng ? c.opp : c.eng };
-      }
-    }
-    return null;
-  }
+  // No curated prices for the Prem — the model prices every game from club strength.
+  function curatedOdds() { return null; }
 
   // model odds for any other match
   function modelOdds(home, away) {
@@ -94,7 +76,7 @@
   }
 
   // ---- state ----
-  var SC = { configured: false, live: [], upcoming: [], recent: [], england: [] };
+  var SC = { configured: false, live: [], upcoming: [], recent: [], featured: [] };
   var BT = { players: [], bets: [], start: 1000 };
   var TAB = "scores";
   var ensured = "";
@@ -254,15 +236,7 @@
   }
 
   // host city for the games we know (the free feed doesn't carry venues)
-  function cityFor(home, away) {
-    var h = (home || "").toLowerCase(), a = (away || "").toLowerCase();
-    function has(x) { return h.indexOf(x) >= 0 || a.indexOf(x) >= 0; }
-    if (has("england") && has("croatia")) return "Dallas";
-    if (has("england") && has("ghana")) return "Boston";
-    if (has("england") && has("panama")) return "New York / NJ";
-    if (has("mexico") && has("south africa")) return "Mexico City";
-    return null;
-  }
+  function cityFor() { return null; }
 
   // ---- rendering ----
   function matchRow(m, opts) {
@@ -335,9 +309,9 @@
         '<div class="cd" data-utc="' + esc(next.utc) + '">' + countdown(next.utc) + "</div></div>"
       ));
     }
-    if (SC.england && SC.england.length) {
-      f.appendChild(el('<div class="mc-section-t">🦁 England</div>'));
-      SC.england.forEach(function (m) { engIds[m.id] = 1; f.appendChild(matchRow(m, {})); });
+    if (SC.featured && SC.featured.length) {
+      f.appendChild(el('<div class="mc-section-t">⭐ Our clubs</div>'));
+      SC.featured.forEach(function (m) { engIds[m.id] = 1; f.appendChild(matchRow(m, {})); });
     }
     if (SC.live.length) {
       f.appendChild(el('<div class="mc-section-t">🔴 Live now</div>'));
@@ -354,8 +328,8 @@
       f.appendChild(el('<div class="mc-section-t">Results</div>'));
       SC.recent.forEach(function (m) { f.appendChild(matchRow(m, { done: true })); });
     }
-    if (!SC.live.length && !SC.upcoming.length && !SC.recent.length && !(SC.england && SC.england.length)) {
-      f.appendChild(el('<div class="mc-empty">No matches to show yet — the tournament kicks off 11 June.</div>'));
+    if (!SC.live.length && !SC.upcoming.length && !SC.recent.length && !(SC.featured && SC.featured.length)) {
+      f.appendChild(el('<div class="mc-empty">No matches yet — the Prem kicks off Sat 22 Aug.</div>'));
     }
     dom.scroll.innerHTML = ""; dom.scroll.appendChild(f);
   }
@@ -430,7 +404,7 @@
     try {
       var r = await fetch(SCORES_URL, { cache: "no-store" });
       var j = await r.json();
-      SC = { configured: !!j.configured, live: j.live || [], upcoming: j.upcoming || [], recent: j.recent || [], england: j.england || [] };
+      SC = { configured: !!j.configured, live: j.live || [], upcoming: j.upcoming || [], recent: j.recent || [], featured: j.featured || [] };
     } catch (e) { SC.configured = false; }
     render();
   }

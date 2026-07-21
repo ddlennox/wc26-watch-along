@@ -3,7 +3,7 @@
    - Tap a game (in the panel) or a pub -> pre-fills the "Post my plan" form
    - Weather for the chosen town on the match date (free Open-Meteo, no key)
    - Registers the service worker so the site installs as an app
-   - Loads tables.js (group tables / knockout bracket)
+   - Loads tables.js (the live Premier League table)
    Hooks into the globals defined by index.html's inline script (PUBS, TOWNS,
    FANZONES, mapsLink, esc) — classic scripts share scope. */
 (function () {
@@ -148,11 +148,11 @@
 
   // ---------- tap-to-plan ----------
   var MATCH_DATES = {
-    "England v Croatia": "2026-06-17T20:00:00Z",
-    "England v Ghana": "2026-06-23T20:00:00Z",
-    "Panama v England": "2026-06-27T21:00:00Z",
-    "Opening match": "2026-06-11T19:00:00Z",
-    "Final": "2026-07-19T19:00:00Z"
+    "Hull City v Man Utd": "2026-08-22T11:30:00Z",
+    "Everton v Crystal Palace": "2026-08-22T14:00:00Z",
+    "Tottenham v Brentford": "2026-08-22T16:30:00Z",
+    "Chelsea v Fulham": "2026-08-24T19:00:00Z",
+    "Opening night": "2026-08-21T19:00:00Z"
   };
   function matchDateFor(m) { return MATCH_DATES[m] || null; }
   var currentMatchDate = null;
@@ -263,7 +263,7 @@
       navigator.serviceWorker.register("/sw.js").catch(function () {});
     }
 
-    // load the group tables / knockout bracket module
+    // load the Premier League table module
     if (!document.getElementById("pk-tables-js")) {
       var tj = document.createElement("script");
       tj.id = "pk-tables-js";
