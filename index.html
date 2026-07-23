@@ -280,7 +280,7 @@
       <div class="row">
         <div class="field">
           <label for="pMatch">Which game</label>
-          <input id="pMatch" list="matchOptions" placeholder="e.g. Chelsea v Fulham" maxlength="50">
+          <input id="pMatch" list="matchOptions" placeholder="e.g. Fulham v Chelsea" maxlength="50">
           <datalist id="matchOptions"></datalist>
         </div>
         <div class="field">
@@ -358,17 +358,17 @@ const FIXTURES = [
    odds:[{lab:"Hull",p:"9/2"},{lab:"Draw",p:"10/3"},{lab:"Man Utd",p:"4/6"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Everton v Crystal Palace", venue:"Hill Dickinson Stadium", time:"3:00pm BST", ch:"Not on UK TV",
    odds:[{lab:"Everton",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Palace",p:"11/5"}]},
-  {day:"SAT", date:"22", mon:"AUG", match:"Tottenham v Brentford", venue:"Spurs Stadium", time:"5:30pm BST", ch:"Sky",
-   odds:[{lab:"Spurs",p:"8/13"},{lab:"Draw",p:"3/1"},{lab:"Brentford",p:"9/2"}]},
-  {day:"MON", date:"24", mon:"AUG", match:"Chelsea v Fulham", venue:"Stamford Bridge", time:"8:00pm BST", ch:"Sky",
-   odds:[{lab:"Chelsea",p:"4/9"},{lab:"Draw",p:"18/5"},{lab:"Fulham",p:"6/1"}]},
+  {day:"SAT", date:"22", mon:"AUG", match:"Brentford v Spurs", venue:"Gtech Community Stadium", time:"5:30pm BST", ch:"Sky",
+   odds:[{lab:"Brentford",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Spurs",p:"21/10"}]},
+  {day:"MON", date:"24", mon:"AUG", match:"Fulham v Chelsea", venue:"Craven Cottage", time:"8:00pm BST", ch:"Sky",
+   odds:[{lab:"Fulham",p:"9/4"},{lab:"Draw",p:"12/5"},{lab:"Chelsea",p:"23/20"}]},
 ];
 
 // Outright winner — latest available prices (July, best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Arsenal",p:"6/4"},{team:"Man City",p:"10/3"},{team:"Liverpool",p:"11/2"},
-  {team:"Man Utd",p:"6/1"},{team:"Chelsea",p:"10/1"},{team:"Newcastle",p:"16/1"},
-  {team:"Aston Villa",p:"25/1"},{team:"Tottenham",p:"28/1"},
+  {team:"Arsenal",p:"6/4"},{team:"Man City",p:"5/2"},{team:"Liverpool",p:"11/2"},
+  {team:"Man Utd",p:"6/1"},{team:"Chelsea",p:"10/1"},{team:"Aston Villa",p:"25/1"},
+  {team:"Newcastle",p:"40/1"},{team:"Tottenham",p:"50/1"},
 ];
 
 const PUBS = [
