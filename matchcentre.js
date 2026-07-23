@@ -19,8 +19,8 @@
   var FALLBACK = [
     { id: "fx-mun", utc: "2026-08-22T11:30:00Z", home: "Hull City", away: "Man United", channel: "TNT" },
     { id: "fx-cry", utc: "2026-08-22T14:00:00Z", home: "Everton", away: "Crystal Palace", channel: null },
-    { id: "fx-tot", utc: "2026-08-22T16:30:00Z", home: "Tottenham", away: "Brentford", channel: "Sky" },
-    { id: "fx-che", utc: "2026-08-24T19:00:00Z", home: "Chelsea", away: "Fulham", channel: "Sky" }
+    { id: "fx-tot", utc: "2026-08-22T16:30:00Z", home: "Brentford", away: "Tottenham", channel: "Sky" },
+    { id: "fx-che", utc: "2026-08-24T19:00:00Z", home: "Fulham", away: "Chelsea", channel: "Sky" }
   ];
 
   // ---- rough club strength for auto-generated fun odds (0-100) ----

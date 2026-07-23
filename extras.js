@@ -150,8 +150,8 @@
   var MATCH_DATES = {
     "Hull City v Man Utd": "2026-08-22T11:30:00Z",
     "Everton v Crystal Palace": "2026-08-22T14:00:00Z",
-    "Tottenham v Brentford": "2026-08-22T16:30:00Z",
-    "Chelsea v Fulham": "2026-08-24T19:00:00Z",
+    "Brentford v Spurs": "2026-08-22T16:30:00Z",
+    "Fulham v Chelsea": "2026-08-24T19:00:00Z",
     "Opening night": "2026-08-21T19:00:00Z"
   };
   function matchDateFor(m) { return MATCH_DATES[m] || null; }
