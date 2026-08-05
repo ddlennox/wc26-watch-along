@@ -242,8 +242,8 @@
 
 <section id="fixtures">
   <div class="wrap">
-    <div class="sec-head"><h2>Our Clubs' Opening Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace (and Charlton — Championship this season, so not on the Prem feed). Here's who they've drawn on the opening weekend. TV: the 12:30 Sat game is on TNT, teatime &amp; Monday nights are Sky, and 3pm Saturdays aren't shown on UK telly.</p>
+    <div class="sec-head"><h2>Our Clubs' Opening Games</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, who start their Championship campaign a week early. Everyone's opening games are here; note the live Table, scores and Match Centre only cover the four top-flight clubs. TV: the 12:30 Sat game is on TNT, teatime &amp; Monday nights are Sky, and 3pm Saturdays (Charlton's included) aren't shown on UK telly.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
@@ -354,10 +354,14 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
+  {day:"SAT", date:"15", mon:"AUG", match:"Charlton v Derby", venue:"The Valley · Championship", time:"3:00pm BST", ch:"Not on UK TV",
+   odds:[{lab:"Charlton",p:"6/5"},{lab:"Draw",p:"23/10"},{lab:"Derby",p:"21/10"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Hull City v Man Utd", venue:"MKM Stadium", time:"12:30pm BST", ch:"TNT",
    odds:[{lab:"Hull",p:"9/2"},{lab:"Draw",p:"10/3"},{lab:"Man Utd",p:"4/6"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Everton v Crystal Palace", venue:"Hill Dickinson Stadium", time:"3:00pm BST", ch:"Not on UK TV",
    odds:[{lab:"Everton",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Palace",p:"11/5"}]},
+  {day:"SAT", date:"22", mon:"AUG", match:"West Ham v Charlton", venue:"London Stadium · Championship", time:"3:00pm BST", ch:"Not on UK TV",
+   odds:[{lab:"West Ham",p:"8/15"},{lab:"Draw",p:"3/1"},{lab:"Charlton",p:"5/1"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Brentford v Spurs", venue:"Gtech Community Stadium", time:"5:30pm BST", ch:"Sky",
    odds:[{lab:"Brentford",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Spurs",p:"21/10"}]},
   {day:"MON", date:"24", mon:"AUG", match:"Fulham v Chelsea", venue:"Craven Cottage", time:"8:00pm BST", ch:"Sky",
