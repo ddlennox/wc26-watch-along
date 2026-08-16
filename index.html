@@ -242,8 +242,8 @@
 
 <section id="fixtures">
   <div class="wrap">
-    <div class="sec-head"><h2>Our Clubs' Opening Games</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, who start their Championship campaign a week early. Everyone's opening games are here; note the live Table, scores and Match Centre only cover the four top-flight clubs. TV: the 12:30 Sat game is on TNT, teatime &amp; Monday nights are Sky, and 3pm Saturdays (Charlton's included) aren't shown on UK telly.</p>
+    <div class="sec-head"><h2>Our Clubs This Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, already up and running in the Championship after a 2–1 win over Derby on the opening day. The next game for each of the five is below; note the live Table, scores and Match Centre only cover the four top-flight clubs. TV: the 12:30 Sat game is on TNT, teatime &amp; Monday nights are Sky, and 3pm Saturdays (Charlton at West Ham included) aren't shown on UK telly.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
@@ -259,7 +259,7 @@
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
     <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal go in favourites to go back-to-back. United are the shortest of our lot, Spurs are a long shot, and Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
-    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in July and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
+    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in August and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
 </section>
 
@@ -354,8 +354,6 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
-  {day:"SAT", date:"15", mon:"AUG", match:"Charlton v Derby", venue:"The Valley · Championship", time:"3:00pm BST", ch:"Not on UK TV",
-   odds:[{lab:"Charlton",p:"6/5"},{lab:"Draw",p:"23/10"},{lab:"Derby",p:"21/10"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Hull City v Man Utd", venue:"MKM Stadium", time:"12:30pm BST", ch:"TNT",
    odds:[{lab:"Hull",p:"9/2"},{lab:"Draw",p:"10/3"},{lab:"Man Utd",p:"4/6"}]},
   {day:"SAT", date:"22", mon:"AUG", match:"Everton v Crystal Palace", venue:"Hill Dickinson Stadium", time:"3:00pm BST", ch:"Not on UK TV",
@@ -368,11 +366,11 @@ const FIXTURES = [
    odds:[{lab:"Fulham",p:"9/4"},{lab:"Draw",p:"12/5"},{lab:"Chelsea",p:"23/20"}]},
 ];
 
-// Outright winner — latest available prices (July, best of the major UK books). Prices move.
+// Outright winner — latest available prices (August, best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Arsenal",p:"6/4"},{team:"Man City",p:"5/2"},{team:"Liverpool",p:"11/2"},
-  {team:"Man Utd",p:"6/1"},{team:"Chelsea",p:"10/1"},{team:"Aston Villa",p:"25/1"},
-  {team:"Newcastle",p:"40/1"},{team:"Tottenham",p:"50/1"},
+  {team:"Arsenal",p:"6/4"},{team:"Man City",p:"11/4"},{team:"Liverpool",p:"11/2"},
+  {team:"Man Utd",p:"7/1"},{team:"Chelsea",p:"8/1"},{team:"Tottenham",p:"20/1"},
+  {team:"Aston Villa",p:"25/1"},{team:"Newcastle",p:"40/1"},
 ];
 
 const PUBS = [

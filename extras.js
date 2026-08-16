@@ -148,7 +148,6 @@
 
   // ---------- tap-to-plan ----------
   var MATCH_DATES = {
-    "Charlton v Derby": "2026-08-15T14:00:00Z",
     "West Ham v Charlton": "2026-08-22T14:00:00Z",
     "Hull City v Man Utd": "2026-08-22T11:30:00Z",
     "Everton v Crystal Palace": "2026-08-22T14:00:00Z",
