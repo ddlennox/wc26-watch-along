@@ -17,10 +17,10 @@
 
   // ---- fixtures shown before the live feed is switched on ----
   var FALLBACK = [
-    { id: "fx-mun", utc: "2026-08-22T11:30:00Z", home: "Hull City", away: "Man United", channel: "TNT" },
-    { id: "fx-cry", utc: "2026-08-22T14:00:00Z", home: "Everton", away: "Crystal Palace", channel: null },
-    { id: "fx-tot", utc: "2026-08-22T16:30:00Z", home: "Brentford", away: "Tottenham", channel: "Sky" },
-    { id: "fx-che", utc: "2026-08-24T19:00:00Z", home: "Fulham", away: "Chelsea", channel: "Sky" }
+    { id: "fx-cry", utc: "2026-08-28T19:00:00Z", home: "Crystal Palace", away: "Man City", channel: "Sky" },
+    { id: "fx-tot", utc: "2026-08-29T16:30:00Z", home: "Tottenham", away: "Newcastle", channel: "Sky" },
+    { id: "fx-che", utc: "2026-08-30T13:00:00Z", home: "Chelsea", away: "Brighton Hove", channel: "Sky" },
+    { id: "fx-mun", utc: "2026-08-30T15:30:00Z", home: "Man United", away: "Ipswich Town", channel: "Sky" }
   ];
 
   // ---- rough club strength for auto-generated fun odds (0-100) ----
@@ -329,7 +329,7 @@
       SC.recent.forEach(function (m) { f.appendChild(matchRow(m, { done: true })); });
     }
     if (!SC.live.length && !SC.upcoming.length && !SC.recent.length && !(SC.featured && SC.featured.length)) {
-      f.appendChild(el('<div class="mc-empty">No matches yet — the Prem kicks off Sat 22 Aug.</div>'));
+      f.appendChild(el('<div class="mc-empty">No matches to show right now — check back closer to the weekend.</div>'));
     }
     dom.scroll.innerHTML = ""; dom.scroll.appendChild(f);
   }
