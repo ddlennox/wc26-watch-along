@@ -243,12 +243,12 @@
 <section id="fixtures">
   <div class="wrap">
     <div class="sec-head"><h2>Our Clubs This Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, who are flying in the Championship with two wins from two after seeing off Derby 2&#8211;1 and winning 2&#8211;1 at West Ham. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Our two met on Wednesday night in the EFL Cup second round and the top flight told: Spurs 5&#8211;1 Charlton, S&aacute;vio scoring on his debut. TV: Friday night, Saturday teatime and both Sunday games are on Sky; Charlton&#39;s 3pm Saturday kick-off isn&#39;t shown on UK telly.</p>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, who are away at Stoke in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Matchday 3 is a busy one: Charlton get us going at lunchtime, then Forest v Spurs and Fulham v Palace clash at 3pm on Saturday, before Everton v Man Utd and the Arsenal v Chelsea London derby on Sunday. TV: Charlton&#39;s 12:30 kick-off is on Sky Sports+ and both Sunday games are on Sky; the two 3pm Saturday games aren&#39;t shown on UK telly.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
-      <div class="kd"><div class="t">This Matchweek</div><div class="d">Fri 28–Mon 31 Aug · matchweek 2</div></div>
-      <div class="kd"><div class="t">Charlton Midweek</div><div class="d">Wed 2 Sep · West Brom (a) · 7:45pm</div></div>
+      <div class="kd"><div class="t">This Matchweek</div><div class="d">Fri 4–Sun 6 Sep · matchweek 3</div></div>
+      <div class="kd"><div class="t">Charlton Midweek</div><div class="d">Wed 9 Sep · QPR (h) · 7:45pm</div></div>
       <div class="kd"><div class="t">Final Day</div><div class="d">Sun 30 May 2027 · all kick off together</div></div>
     </div>
   </div>
@@ -257,9 +257,9 @@
 <section id="odds">
   <div class="wrap">
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
-    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal go in favourites to go back-to-back. Chelsea are the shortest of our lot after that win at Fulham, United have drifted, Spurs are a long shot, and Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
+    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal go in favourites to go back-to-back, though Man City lead the table on goal difference. Chelsea are the shortest of our lot after that 4&#8211;3 win over Brighton, United are out at 14/1 despite putting five past Ipswich, Spurs are a long shot after a poor start, and Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
-    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in August and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
+    <p class="gamble"><b>Just for fun.</b> Prices are the latest available in September and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
 </section>
 
@@ -354,23 +354,23 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
-  {day:"FRI", date:"28", mon:"AUG", match:"Crystal Palace v Man City", venue:"Selhurst Park", time:"8:00pm BST", ch:"Sky",
-   odds:[{lab:"Palace",p:"9/2"},{lab:"Draw",p:"10/3"},{lab:"Man City",p:"4/7"}]},
-  {day:"SAT", date:"29", mon:"AUG", match:"Charlton v Preston", venue:"The Valley · Championship", time:"3:00pm BST", ch:"Not on UK TV",
-   odds:[{lab:"Charlton",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Preston",p:"21/10"}]},
-  {day:"SAT", date:"29", mon:"AUG", match:"Spurs v Newcastle", venue:"Tottenham Hotspur Stadium", time:"5:30pm BST", ch:"Sky",
-   odds:[{lab:"Spurs",p:"6/5"},{lab:"Draw",p:"5/2"},{lab:"Newcastle",p:"21/10"}]},
-  {day:"SUN", date:"30", mon:"AUG", match:"Chelsea v Brighton", venue:"Stamford Bridge", time:"2:00pm BST", ch:"Sky",
-   odds:[{lab:"Chelsea",p:"8/11"},{lab:"Draw",p:"3/1"},{lab:"Brighton",p:"7/2"}]},
-  {day:"SUN", date:"30", mon:"AUG", match:"Man Utd v Ipswich", venue:"Old Trafford", time:"4:30pm BST", ch:"Sky",
-   odds:[{lab:"Man Utd",p:"8/13"},{lab:"Draw",p:"3/1"},{lab:"Ipswich",p:"9/2"}]},
+  {day:"SAT", date:"5", mon:"SEP", match:"Stoke v Charlton", venue:"bet365 Stadium · Championship", time:"12:30pm BST", ch:"Sky Sports+",
+   odds:[{lab:"Stoke",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Charlton",p:"21/10"}]},
+  {day:"SAT", date:"5", mon:"SEP", match:"Forest v Spurs", venue:"City Ground", time:"3:00pm BST", ch:"Not on UK TV",
+   odds:[{lab:"Forest",p:"9/5"},{lab:"Draw",p:"12/5"},{lab:"Spurs",p:"13/10"}]},
+  {day:"SAT", date:"5", mon:"SEP", match:"Fulham v Crystal Palace", venue:"Craven Cottage", time:"3:00pm BST", ch:"Not on UK TV",
+   odds:[{lab:"Fulham",p:"6/5"},{lab:"Draw",p:"9/4"},{lab:"Palace",p:"21/10"}]},
+  {day:"SUN", date:"6", mon:"SEP", match:"Everton v Man Utd", venue:"Hill Dickinson Stadium", time:"2:00pm BST", ch:"Sky",
+   odds:[{lab:"Everton",p:"11/4"},{lab:"Draw",p:"5/2"},{lab:"Man Utd",p:"21/20"}]},
+  {day:"SUN", date:"6", mon:"SEP", match:"Arsenal v Chelsea", venue:"Emirates Stadium", time:"4:30pm BST", ch:"Sky",
+   odds:[{lab:"Arsenal",p:"4/6"},{lab:"Draw",p:"3/1"},{lab:"Chelsea",p:"4/1"}]},
 ];
 
-// Outright winner — prices after matchday 1 (best of the major UK books). Prices move.
+// Outright winner — prices after matchday 2 (best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Arsenal",p:"5/4"},{team:"Man City",p:"11/4"},{team:"Chelsea",p:"6/1"},
-  {team:"Liverpool",p:"6/1"},{team:"Man Utd",p:"8/1"},{team:"Tottenham",p:"25/1"},
-  {team:"Newcastle",p:"33/1"},{team:"Aston Villa",p:"40/1"},
+  {team:"Arsenal",p:"4/5"},{team:"Man City",p:"7/2"},{team:"Chelsea",p:"5/1"},
+  {team:"Liverpool",p:"8/1"},{team:"Man Utd",p:"14/1"},{team:"Newcastle",p:"25/1"},
+  {team:"Tottenham",p:"33/1"},{team:"Aston Villa",p:"50/1"},
 ];
 
 const PUBS = [
@@ -461,7 +461,7 @@ meInput.addEventListener("input", (e)=>{
 });
 
 // ---------- COUNTDOWN ----------
-const KICKOFF = new Date("2026-08-28T19:00:00Z"); // 8pm BST · Palace v Man City
+const KICKOFF = new Date("2026-09-05T11:30:00Z"); // 12:30pm BST · Stoke v Charlton
 function renderCountdown(){
   const el = document.getElementById("countdown");
   const now = new Date();
@@ -475,7 +475,7 @@ function renderCountdown(){
     return;
   }
   const cell=(n,l)=>`<div class="cell"><div class="num">${String(n).padStart(2,'0')}</div><div class="lab">${l}</div></div>`;
-  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Fri 28 Aug</div>';
+  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Sat 5 Sep</div>';
 }
 
 // ---------- FIXTURES ----------
