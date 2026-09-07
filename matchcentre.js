@@ -17,10 +17,10 @@
 
   // ---- fixtures shown before the live feed is switched on ----
   var FALLBACK = [
-    { id: "fx-tot", utc: "2026-09-05T14:00:00Z", home: "Nottingham", away: "Tottenham", channel: "Not on UK TV" },
-    { id: "fx-cry", utc: "2026-09-05T14:00:00Z", home: "Fulham", away: "Crystal Palace", channel: "Not on UK TV" },
-    { id: "fx-mun", utc: "2026-09-06T13:00:00Z", home: "Everton", away: "Man United", channel: "Sky" },
-    { id: "fx-che", utc: "2026-09-06T15:30:00Z", home: "Arsenal", away: "Chelsea", channel: "Sky" }
+    { id: "fx-che", utc: "2026-09-12T14:00:00Z", home: "Chelsea", away: "Hull City", channel: "Not on UK TV" },
+    { id: "fx-cry", utc: "2026-09-12T14:00:00Z", home: "Crystal Palace", away: "Ipswich Town", channel: "Not on UK TV" },
+    { id: "fx-tot", utc: "2026-09-12T16:30:00Z", home: "Tottenham", away: "Everton", channel: "Sky" },
+    { id: "fx-mun", utc: "2026-09-13T15:30:00Z", home: "Man United", away: "Man City", channel: "Sky" }
   ];
 
   // ---- rough club strength for auto-generated fun odds (0-100) ----
