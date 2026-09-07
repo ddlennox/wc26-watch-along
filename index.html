@@ -243,12 +243,12 @@
 <section id="fixtures">
   <div class="wrap">
     <div class="sec-head"><h2>Our Clubs This Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, who are away at Stoke in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Matchday 3 is a busy one: Charlton get us going at lunchtime, then Forest v Spurs and Fulham v Palace clash at 3pm on Saturday, before Everton v Man Utd and the Arsenal v Chelsea London derby on Sunday. TV: Charlton&#39;s 12:30 kick-off is on Sky Sports+ and both Sunday games are on Sky; the two 3pm Saturday games aren&#39;t shown on UK telly.</p>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, at home to Portsmouth in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Awkward one this week: Charlton, Chelsea and Palace all kick off together at 3pm on Saturday and none of the three is on UK telly, so pick your pub for the one you care about. Spurs v Everton is the Saturday teatime game on Sky, and the Manchester derby closes the weekend on Sunday — also Sky.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
-      <div class="kd"><div class="t">This Matchweek</div><div class="d">Fri 4–Sun 6 Sep · matchweek 3</div></div>
-      <div class="kd"><div class="t">Charlton Midweek</div><div class="d">Wed 9 Sep · QPR (h) · 7:45pm</div></div>
+      <div class="kd"><div class="t">This Matchweek</div><div class="d">Fri 11–Sun 13 Sep · matchweek 4</div></div>
+      <div class="kd"><div class="t">Charlton Next Up</div><div class="d">Sat 19 Sep · Cardiff (a) · 3:00pm</div></div>
       <div class="kd"><div class="t">Final Day</div><div class="d">Sun 30 May 2027 · all kick off together</div></div>
     </div>
   </div>
@@ -257,7 +257,7 @@
 <section id="odds">
   <div class="wrap">
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
-    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal go in favourites to go back-to-back, though Man City lead the table on goal difference. Chelsea are the shortest of our lot after that 4&#8211;3 win over Brighton, United are out at 14/1 despite putting five past Ipswich, Spurs are a long shot after a poor start, and Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
+    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Arsenal and Man City are dead level at the top on nine points and identical goal difference, and the market can't split them either. Chelsea are still the shortest of our lot in fourth, United have drifted to 16/1 down in eleventh, and Spurs are out at 50/1 after one point from three. Palace and Charlton, well… best of luck. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
     <p class="gamble"><b>Just for fun.</b> Prices are the latest available in September and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
@@ -354,23 +354,23 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
-  {day:"SAT", date:"5", mon:"SEP", match:"Stoke v Charlton", venue:"bet365 Stadium · Championship", time:"12:30pm BST", ch:"Sky Sports+",
-   odds:[{lab:"Stoke",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Charlton",p:"21/10"}]},
-  {day:"SAT", date:"5", mon:"SEP", match:"Forest v Spurs", venue:"City Ground", time:"3:00pm BST", ch:"Not on UK TV",
-   odds:[{lab:"Forest",p:"9/5"},{lab:"Draw",p:"12/5"},{lab:"Spurs",p:"13/10"}]},
-  {day:"SAT", date:"5", mon:"SEP", match:"Fulham v Crystal Palace", venue:"Craven Cottage", time:"3:00pm BST", ch:"Not on UK TV",
-   odds:[{lab:"Fulham",p:"6/5"},{lab:"Draw",p:"9/4"},{lab:"Palace",p:"21/10"}]},
-  {day:"SUN", date:"6", mon:"SEP", match:"Everton v Man Utd", venue:"Hill Dickinson Stadium", time:"2:00pm BST", ch:"Sky",
-   odds:[{lab:"Everton",p:"11/4"},{lab:"Draw",p:"5/2"},{lab:"Man Utd",p:"21/20"}]},
-  {day:"SUN", date:"6", mon:"SEP", match:"Arsenal v Chelsea", venue:"Emirates Stadium", time:"4:30pm BST", ch:"Sky",
-   odds:[{lab:"Arsenal",p:"4/6"},{lab:"Draw",p:"3/1"},{lab:"Chelsea",p:"4/1"}]},
+  {day:"SAT", date:"12", mon:"SEP", match:"Charlton v Portsmouth", venue:"The Valley · Championship", time:"3:00pm BST", ch:"Not on UK TV", utc:"2026-09-12T14:00:00Z",
+   odds:[{lab:"Charlton",p:"6/5"},{lab:"Draw",p:"12/5"},{lab:"Portsmouth",p:"21/10"}]},
+  {day:"SAT", date:"12", mon:"SEP", match:"Chelsea v Hull", venue:"Stamford Bridge", time:"3:00pm BST", ch:"Not on UK TV", utc:"2026-09-12T14:00:00Z",
+   odds:[{lab:"Chelsea",p:"1/3"},{lab:"Draw",p:"9/2"},{lab:"Hull",p:"8/1"}]},
+  {day:"SAT", date:"12", mon:"SEP", match:"Crystal Palace v Ipswich", venue:"Selhurst Park", time:"3:00pm BST", ch:"Not on UK TV", utc:"2026-09-12T14:00:00Z",
+   odds:[{lab:"Palace",p:"4/6"},{lab:"Draw",p:"3/1"},{lab:"Ipswich",p:"4/1"}]},
+  {day:"SAT", date:"12", mon:"SEP", match:"Spurs v Everton", venue:"Tottenham Hotspur Stadium", time:"5:30pm BST", ch:"Sky", utc:"2026-09-12T16:30:00Z",
+   odds:[{lab:"Spurs",p:"4/5"},{lab:"Draw",p:"5/2"},{lab:"Everton",p:"10/3"}]},
+  {day:"SUN", date:"13", mon:"SEP", match:"Man Utd v Man City", venue:"Old Trafford", time:"4:30pm BST", ch:"Sky", utc:"2026-09-13T15:30:00Z",
+   odds:[{lab:"Man Utd",p:"9/5"},{lab:"Draw",p:"5/2"},{lab:"Man City",p:"11/8"}]},
 ];
 
-// Outright winner — prices after matchday 2 (best of the major UK books). Prices move.
+// Outright winner — prices after matchday 3 (best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Arsenal",p:"4/5"},{team:"Man City",p:"7/2"},{team:"Chelsea",p:"5/1"},
-  {team:"Liverpool",p:"8/1"},{team:"Man Utd",p:"14/1"},{team:"Newcastle",p:"25/1"},
-  {team:"Tottenham",p:"33/1"},{team:"Aston Villa",p:"50/1"},
+  {team:"Arsenal",p:"5/6"},{team:"Man City",p:"3/1"},{team:"Chelsea",p:"11/2"},
+  {team:"Liverpool",p:"9/1"},{team:"Man Utd",p:"16/1"},{team:"Newcastle",p:"25/1"},
+  {team:"Tottenham",p:"50/1"},{team:"Aston Villa",p:"66/1"},
 ];
 
 const PUBS = [
@@ -461,21 +461,32 @@ meInput.addEventListener("input", (e)=>{
 });
 
 // ---------- COUNTDOWN ----------
-const KICKOFF = new Date("2026-09-05T11:30:00Z"); // 12:30pm BST · Stoke v Charlton
+// Derived from FIXTURES rather than a hardcoded date, so it rolls on to the next
+// game by itself and never sticks on "kick-off time" between weekly refreshes.
+function fixtureTimes(){
+  return FIXTURES.filter(f=>f.utc).map(f=>new Date(f.utc)).sort((a,b)=>a-b);
+}
 function renderCountdown(){
   const el = document.getElementById("countdown");
   const now = new Date();
-  let diff = Math.max(0, KICKOFF - now);
+  const times = fixtureTimes();
+  const next = times.find(t=>t>now);
+  if(!next){
+    // no fixture ahead of us — are we mid-match, or just waiting on the next refresh?
+    const last = times[times.length-1];
+    el.innerHTML = (last && now-last < 7200000)
+      ? '<div class="what" style="color:var(--lime);font-weight:700">⚽ Kick-off time — get to the pub!</div>'
+      : '<div class="what">That&#39;s this week&#39;s lot — next round of fixtures goes up shortly.</div>';
+    return;
+  }
+  let diff = Math.max(0, next - now);
   const d = Math.floor(diff/86400000); diff-=d*86400000;
   const h = Math.floor(diff/3600000); diff-=h*3600000;
   const m = Math.floor(diff/60000); diff-=m*60000;
   const s = Math.floor(diff/1000);
-  if(KICKOFF - now <= 0){
-    el.innerHTML = '<div class="what" style="color:var(--lime);font-weight:700">⚽ Kick-off time — get to the pub!</div>';
-    return;
-  }
   const cell=(n,l)=>`<div class="cell"><div class="num">${String(n).padStart(2,'0')}</div><div class="lab">${l}</div></div>`;
-  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+'<div class="what">until kick-off · Sat 5 Sep</div>';
+  const lbl = next.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  el.innerHTML = cell(d,"Days")+cell(h,"Hrs")+cell(m,"Min")+cell(s,"Sec")+`<div class="what">until kick-off · ${lbl}</div>`;
 }
 
 // ---------- FIXTURES ----------
