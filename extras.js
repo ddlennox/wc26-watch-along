@@ -148,11 +148,11 @@
 
   // ---------- tap-to-plan ----------
   var MATCH_DATES = {
-    "Brentford v Chelsea": "2026-09-18T19:00:00Z",
-    "Spurs v Aston Villa": "2026-09-19T11:30:00Z",
-    "Cardiff v Charlton": "2026-09-19T11:30:00Z",
-    "Leeds v Crystal Palace": "2026-09-20T13:00:00Z",
-    "Fulham v Man Utd": "2026-09-20T15:30:00Z",
+    "Charlton v Bristol City": "2026-10-10T11:30:00Z",
+    "Chelsea v Bournemouth": "2026-10-10T14:00:00Z",
+    "Man Utd v Spurs": "2026-10-10T16:30:00Z",
+    "Crystal Palace v Forest": "2026-10-11T13:00:00Z",
+    "Leeds v Man Utd": "2026-10-18T13:00:00Z",
     "Opening night": "2026-08-21T19:00:00Z"
   };
   function matchDateFor(m) { return MATCH_DATES[m] || null; }
