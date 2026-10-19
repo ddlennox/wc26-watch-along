@@ -243,12 +243,12 @@
 <section id="fixtures">
   <div class="wrap">
     <div class="sec-head"><h2>Our Clubs This Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, away at Watford in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Matchweek 7 kicks off with a Saturday lunchtime double at 12:30: Chelsea visit Everton live on TNT, the pub pick, while Charlton&#39;s trip to Vicarage Road has no UK broadcast. Sunday at 2pm is Leeds v Man Utd at Elland Road on Sky, with Palace at Brighton kicking off at the same time and not on UK TV. Spurs close the round on Monday night against Coventry, 8pm on Sky.</p>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, at The Valley against Norwich in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Tonight Spurs host Coventry at 8pm on Sky to close matchweek 7. Saturday starts with Charlton v Norwich at 12:30, not on UK TV, then the big one: Chelsea v Spurs at 5:30pm live on Sky, the pub pick of the weekend. The clocks go back on Sunday, so Man Utd v Bournemouth and Palace v Newcastle both kick off at 2pm GMT and neither is on UK TV.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
-      <div class="kd"><div class="t">This Matchweek</div><div class="d">Sat 17–Mon 19 Oct · matchweek 7</div></div>
-      <div class="kd"><div class="t">Charlton Next Up</div><div class="d">Sat 24 Oct · Norwich City (h) · 12:30pm</div></div>
+      <div class="kd"><div class="t">This Matchweek</div><div class="d">Sat 24–Sun 25 Oct · matchweek 8</div></div>
+      <div class="kd"><div class="t">Charlton Next Up</div><div class="d">Sat 31 Oct · Middlesbrough (a) · 3:00pm</div></div>
       <div class="kd"><div class="t">Final Day</div><div class="d">Sun 30 May 2027 · all kick off together</div></div>
     </div>
   </div>
@@ -257,7 +257,7 @@
 <section id="odds">
   <div class="wrap">
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
-    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Man City top the table on eighteen points from six straight wins, fresh from a 3-0 win at Liverpool, and the bookies have them closing on Arsenal, who remain favourites at 4/5 despite sitting second on fifteen. Brighton are this season's surprise package: third on thirteen points with a +13 goal difference, and 33/1 to go all the way. Our four are further down the page. Chelsea are sixth on ten points after Saturday's 5-1 thrashing of Bournemouth, and at 8/1 they're the shortest price of ours. United are thirteenth on six after the 1-1 with Spurs and out at 25/1. Spurs are the story nobody wants — eighteenth, three points, a goal difference of -6 — so 250/1 is as generous as it gets. Palace climbed to twelfth on seven after beating Forest 3-1 and are nowhere near this market. Charlton, of course, aren't in it at all. The win/draw/win prices for each of our games are on the fixture cards above.</p>
+    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Man City top the table on twenty-one points from seven straight wins, but the bookies still make Arsenal the favourites at 4/6 despite sitting second on eighteen after a 1-0 win at Forest. Brighton are the surprise package: third on sixteen points with a +18 goal difference after hammering Palace 5-0, and 40/1 to go all the way. Our four are further down the page. Chelsea are fourth on thirteen points and, at 16/1, the shortest price of ours. United are thirteenth on seven after the 1-1 draw at Leeds and out at 100/1. Spurs are bottom — twentieth on three points with a -6 goal difference, though they have a game in hand tonight against Coventry — so 500/1 is as generous as it gets. Palace are fourteenth on seven after that 5-0 loss and are nowhere near this market. Charlton, of course, aren&#39;t in it at all. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
     <p class="gamble"><b>Just for fun.</b> Prices are the latest available in October and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
@@ -354,23 +354,23 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
-  {day:"SAT", date:"17", mon:"OCT", match:"Watford v Charlton", venue:"Vicarage Road · Championship", time:"12:30pm BST", ch:"Not on UK TV", utc:"2026-10-17T11:30:00Z",
-   odds:[{lab:"Watford",p:"11/10"},{lab:"Draw",p:"12/5"},{lab:"Charlton",p:"5/2"}]},
-  {day:"SAT", date:"17", mon:"OCT", match:"Everton v Chelsea", venue:"Hill Dickinson Stadium", time:"12:30pm BST", ch:"TNT Sports", utc:"2026-10-17T11:30:00Z",
-   odds:[{lab:"Everton",p:"7/2"},{lab:"Draw",p:"13/5"},{lab:"Chelsea",p:"4/5"}]},
-  {day:"SUN", date:"18", mon:"OCT", match:"Leeds v Man Utd", venue:"Elland Road", time:"2:00pm BST", ch:"Sky", utc:"2026-10-18T13:00:00Z",
-   odds:[{lab:"Leeds",p:"11/10"},{lab:"Draw",p:"23/10"},{lab:"Man Utd",p:"5/2"}]},
-  {day:"SUN", date:"18", mon:"OCT", match:"Brighton v Crystal Palace", venue:"Amex Stadium", time:"2:00pm BST", ch:"Not on UK TV", utc:"2026-10-18T13:00:00Z",
-   odds:[{lab:"Brighton",p:"10/11"},{lab:"Draw",p:"13/5"},{lab:"Palace",p:"3/1"}]},
   {day:"MON", date:"19", mon:"OCT", match:"Spurs v Coventry", venue:"Tottenham Hotspur Stadium", time:"8:00pm BST", ch:"Sky", utc:"2026-10-19T19:00:00Z",
    odds:[{lab:"Spurs",p:"4/5"},{lab:"Draw",p:"13/5"},{lab:"Coventry",p:"19/5"}]},
+  {day:"SAT", date:"24", mon:"OCT", match:"Charlton v Norwich", venue:"The Valley · Championship", time:"12:30pm BST", ch:"Not on UK TV", utc:"2026-10-24T11:30:00Z",
+   odds:[{lab:"Charlton",p:"11/10"},{lab:"Draw",p:"5/2"},{lab:"Norwich",p:"13/5"}]},
+  {day:"SAT", date:"24", mon:"OCT", match:"Chelsea v Spurs", venue:"Stamford Bridge", time:"5:30pm BST", ch:"Sky", utc:"2026-10-24T16:30:00Z",
+   odds:[{lab:"Chelsea",p:"8/13"},{lab:"Draw",p:"13/5"},{lab:"Spurs",p:"9/2"}]},
+  {day:"SUN", date:"25", mon:"OCT", match:"Man Utd v Bournemouth", venue:"Old Trafford", time:"2:00pm GMT", ch:"Not on UK TV", utc:"2026-10-25T14:00:00Z",
+   odds:[{lab:"Man Utd",p:"4/6"},{lab:"Draw",p:"3/1"},{lab:"Bournemouth",p:"4/1"}]},
+  {day:"SUN", date:"25", mon:"OCT", match:"Crystal Palace v Newcastle", venue:"Selhurst Park", time:"2:00pm GMT", ch:"Not on UK TV", utc:"2026-10-25T14:00:00Z",
+   odds:[{lab:"Palace",p:"6/4"},{lab:"Draw",p:"13/5"},{lab:"Newcastle",p:"19/10"}]},
 ];
 
-// Outright winner — prices after matchweek 6 (best of the major UK books). Prices move.
+// Outright winner — prices after matchweek 7 (best of the major UK books). Prices move.
 const OUTRIGHT = [
-  {team:"Arsenal",p:"4/5"},{team:"Man City",p:"5/2"},{team:"Chelsea",p:"8/1"},
-  {team:"Liverpool",p:"14/1"},{team:"Man Utd",p:"25/1"},{team:"Brighton",p:"33/1"},
-  {team:"Brentford",p:"80/1"},{team:"Tottenham",p:"250/1"},
+  {team:"Arsenal",p:"4/6"},{team:"Man City",p:"7/2"},{team:"Chelsea",p:"16/1"},
+  {team:"Liverpool",p:"28/1"},{team:"Brighton",p:"40/1"},{team:"Man Utd",p:"100/1"},
+  {team:"Brentford",p:"150/1"},{team:"Tottenham",p:"500/1"},
 ];
 
 const PUBS = [
