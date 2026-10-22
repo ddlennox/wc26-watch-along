@@ -243,7 +243,7 @@
 <section id="fixtures">
   <div class="wrap">
     <div class="sec-head"><h2>Our Clubs This Weekend</h2><span class="tag">all times BST · Malta is +1hr</span><span class="bar"></span></div>
-    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, at The Valley against Norwich in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Tonight Spurs host Coventry at 8pm on Sky to close matchweek 7. Saturday starts with Charlton v Norwich at 12:30, not on UK TV, then the big one: Chelsea v Spurs at 5:30pm live on Sky, the pub pick of the weekend. The clocks go back on Sunday, so Man Utd v Bournemouth and Palace v Newcastle both kick off at 2pm GMT and neither is on UK TV.</p>
+    <p class="fix-note">The lads follow Man Utd, Chelsea, Spurs &amp; Palace in the Prem — plus Charlton, at The Valley against Norwich in the Championship. Note the live Table, scores and Match Centre only cover the four top-flight clubs. Saturday starts with Charlton v Norwich at 12:30, not on UK TV, then the big one: Chelsea v Spurs at 5:30pm live on Sky, the pub pick of the weekend. The clocks go back on Sunday, so Man Utd v Bournemouth and Palace v Newcastle both kick off at 2pm GMT, and both are live on Sky.</p>
     <div class="fix-grid" id="engFixtures"></div>
 
     <div class="keydates">
@@ -257,7 +257,7 @@
 <section id="odds">
   <div class="wrap">
     <div class="sec-head"><h2>The Odds</h2><span class="tag">latest prices · for the sweepstake banter</span><span class="bar"></span></div>
-    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Man City top the table on twenty-one points from seven straight wins, but the bookies still make Arsenal the favourites at 4/6 despite sitting second on eighteen after a 1-0 win at Forest. Brighton are the surprise package: third on sixteen points with a +18 goal difference after hammering Palace 5-0, and 40/1 to go all the way. Our four are further down the page. Chelsea are fourth on thirteen points and, at 16/1, the shortest price of ours. United are thirteenth on seven after the 1-1 draw at Leeds and out at 100/1. Spurs are bottom — twentieth on three points with a -6 goal difference, though they have a game in hand tonight against Coventry — so 500/1 is as generous as it gets. Palace are fourteenth on seven after that 5-0 loss and are nowhere near this market. Charlton, of course, aren&#39;t in it at all. The win/draw/win prices for each of our games are on the fixture cards above.</p>
+    <p class="odds-intro">Who's lifting the Prem in May? Outright title prices below — Man City top the table on twenty-one points from seven straight wins, but the bookies still make Arsenal the favourites at 4/6 despite sitting second on eighteen. Brighton are the surprise package: third on sixteen points with a +18 goal difference, and 40/1 to go all the way. Our four are further down the page. Chelsea are fourth on thirteen points and, at 16/1, the shortest price of ours; they host Spurs on Saturday. United are thirteenth on seven after the 1-1 draw at Leeds and out at 100/1. Spurs climbed to sixteenth on six points after Monday&#39;s 3-1 win over Coventry, but 500/1 is still as generous as it gets. Palace are fourteenth on seven after that 5-0 loss at Brighton and are nowhere near this market. Charlton, of course, aren&#39;t in it at all. The win/draw/win prices for each of our games are on the fixture cards above.</p>
     <div class="odds-list" id="outrightList"></div>
     <p class="gamble"><b>Just for fun.</b> Prices are the latest available in October and move all the time — check a bookie for live odds before anything's official. 18+ · when the fun stops, stop · BeGambleAware.org</p>
   </div>
@@ -354,15 +354,13 @@ const Me = {
 
 // ---------- DATA ----------
 const FIXTURES = [
-  {day:"MON", date:"19", mon:"OCT", match:"Spurs v Coventry", venue:"Tottenham Hotspur Stadium", time:"8:00pm BST", ch:"Sky", utc:"2026-10-19T19:00:00Z",
-   odds:[{lab:"Spurs",p:"4/5"},{lab:"Draw",p:"13/5"},{lab:"Coventry",p:"19/5"}]},
   {day:"SAT", date:"24", mon:"OCT", match:"Charlton v Norwich", venue:"The Valley · Championship", time:"12:30pm BST", ch:"Not on UK TV", utc:"2026-10-24T11:30:00Z",
    odds:[{lab:"Charlton",p:"11/10"},{lab:"Draw",p:"5/2"},{lab:"Norwich",p:"13/5"}]},
   {day:"SAT", date:"24", mon:"OCT", match:"Chelsea v Spurs", venue:"Stamford Bridge", time:"5:30pm BST", ch:"Sky", utc:"2026-10-24T16:30:00Z",
    odds:[{lab:"Chelsea",p:"8/13"},{lab:"Draw",p:"13/5"},{lab:"Spurs",p:"9/2"}]},
-  {day:"SUN", date:"25", mon:"OCT", match:"Man Utd v Bournemouth", venue:"Old Trafford", time:"2:00pm GMT", ch:"Not on UK TV", utc:"2026-10-25T14:00:00Z",
+  {day:"SUN", date:"25", mon:"OCT", match:"Man Utd v Bournemouth", venue:"Old Trafford", time:"2:00pm GMT", ch:"Sky", utc:"2026-10-25T14:00:00Z",
    odds:[{lab:"Man Utd",p:"4/6"},{lab:"Draw",p:"3/1"},{lab:"Bournemouth",p:"4/1"}]},
-  {day:"SUN", date:"25", mon:"OCT", match:"Crystal Palace v Newcastle", venue:"Selhurst Park", time:"2:00pm GMT", ch:"Not on UK TV", utc:"2026-10-25T14:00:00Z",
+  {day:"SUN", date:"25", mon:"OCT", match:"Crystal Palace v Newcastle", venue:"Selhurst Park", time:"2:00pm GMT", ch:"Sky", utc:"2026-10-25T14:00:00Z",
    odds:[{lab:"Palace",p:"6/4"},{lab:"Draw",p:"13/5"},{lab:"Newcastle",p:"19/10"}]},
 ];
 
@@ -437,7 +435,7 @@ const PUBS = [
   {town:"Malta", name:"The Londoner Pub", addr:"83 The Strand, Sliema SLM 1022", rating:4.4, count:989, desc:"Lively Strand-front pub with sport on, late opening and proper fish &amp; chips."},
   {town:"Malta", name:"Black Gold Saloon", addr:"Triq Ix-Xatt, Sliema", rating:4.2, count:3539, desc:"Plenty of screens for sports fans right on the Sliema seafront strip."},
   {town:"Malta", name:"Step Down Bar", addr:"161 Triq Manwel Dimech, Sliema", rating:4.4, count:234, desc:"Cosy corner bar in Sliema that shows Premier League and Champions League — also claims the best Sunday roast in Malta."},
-  {town:"Malta", name:"Rapid Sports Lounge", addr:"Tourist St, St Paul&#39;s Bay", rating:4.5, count:890, desc:"Four huge screens across two floors in St Paul&#39;s — Stella, Heineken, Guinness and local Cisk on tap."},
+  {town:"Malta", name:"Rapid Sports Lounge", addr:"Tourist St, St Paul&#39;s Bay", rating:4.5, count:890, desc:"Four huge screens across two floors in St Paul's — Stella, Heineken, Guinness and local Cisk on tap."},
   {town:"Malta", name:"Fat Harry&#39;s Pub", addr:"38 St Zachary St, Valletta", rating:4.4, count:567, desc:"Gastro pub in Valletta with solid TV coverage — more relaxed than Paceville, great for a mixed group."},
   {town:"Malta", name:"Queen Victoria", addr:"20 South St, Valletta, VLT 1103", rating:4.3, count:445, desc:"Traditional English pub in Valletta showing live English football — book ahead for a table with a good screen view."},
 ];
