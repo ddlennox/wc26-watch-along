@@ -148,7 +148,6 @@
 
   // ---------- tap-to-plan ----------
   var MATCH_DATES = {
-    "Spurs v Coventry": "2026-10-19T19:00:00Z",
     "Charlton v Norwich": "2026-10-24T11:30:00Z",
     "Chelsea v Spurs": "2026-10-24T16:30:00Z",
     "Man Utd v Bournemouth": "2026-10-25T14:00:00Z",
