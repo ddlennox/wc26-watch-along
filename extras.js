@@ -148,10 +148,9 @@
 
   // ---------- tap-to-plan ----------
   var MATCH_DATES = {
-    "Charlton v Norwich": "2026-10-24T11:30:00Z",
-    "Chelsea v Spurs": "2026-10-24T16:30:00Z",
-    "Man Utd v Bournemouth": "2026-10-25T14:00:00Z",
-    "Crystal Palace v Newcastle": "2026-10-25T14:00:00Z",
+    "Chelsea v Man Utd": "2026-10-31T12:30:00Z",
+    "Middlesbrough v Charlton": "2026-10-31T15:00:00Z",
+    "Spurs v Crystal Palace": "2026-10-31T17:30:00Z",
     "Opening night": "2026-08-21T19:00:00Z"
   };
   function matchDateFor(m) { return MATCH_DATES[m] || null; }
